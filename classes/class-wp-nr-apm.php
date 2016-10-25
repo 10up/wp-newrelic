@@ -17,7 +17,7 @@ class WP_NR_APM {
 		
 		add_action( 'plugins_loaded', array( $this, 'setup_config' ), 9999 );
 		add_action( 'init', array( $this, 'set_custom_variables' ) );
-		add_action( 'template_include', array( $this, 'set_template' ), 9999 );
+		add_filter( 'template_include', array( $this, 'set_template' ), 9999 );
 		add_action( 'parse_query', array( $this, 'set_transaction' ), 10 );
 		
 		add_action( 'wp_async_task_before_job', array( $this, 'async_before_job_track_time' ), 9999, 1 );
