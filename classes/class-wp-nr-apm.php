@@ -129,7 +129,11 @@ class WP_NR_APM {
 				$post_type = ( ! empty( $query->query['post_type'] ) ) ? $query->query['post_type'] : 'Post';
 				$transaction = "Single - {$post_type}";
 			} elseif( is_page() ) {
-				$transaction = "Page - {$query->query['pagename']}";
+				$page = '';
+				if( isset( $query->query['pagename'] ) ) {
+					$page = ' - ' . $query->query['pagename'];
+				}
+				$transaction = "Page{$page}";
 			} elseif( is_date() ) {
 				$transaction = "Date Archive";
 			} elseif( is_search() ) {
@@ -140,9 +144,17 @@ class WP_NR_APM {
 				$post_type = post_type_archive_title( '', false );
 				$transaction = "Archive - {$post_type}";
 			} elseif( is_category() ) {
-				$transaction = "Category - {$query->query['category_name']}";
+				$cat = '';
+				if( isset( $query->query['category_name'] ) ) {
+					$cat = ' - ' . $query->query['category_name'];
+				}
+				$transaction = "Category{$cat}";
 			} elseif( is_tag() ) {
-				$transaction = "Tag - {$query->query['tag']}";
+				$tag = '';
+				if( isset( $query->query['tag'] ) ) {
+					$tag = ' - ' . $query->query['tag'];
+				}
+				$transaction = "Tag{$tag}";
 			} elseif( is_tax() ) {
 				$tax = key( $query->tax_query->queried_terms );
 				$term = implode( ' | ', $query->tax_query->queried_terms[$tax]['terms'] );
