@@ -19,7 +19,7 @@ class WP_NR_APM {
 		add_action( 'init', array( $this, 'set_custom_variables' ) );
 		add_filter( 'template_include', array( $this, 'set_template' ), 9999 );
 		add_action( 'parse_query', array( $this, 'set_transaction' ), 10 );
-		add_action( 'parse_query', array( $this, 'set_post_id' ), 10 );
+		add_action( 'wp', array( $this, 'set_post_id' ), 10 );
 		
 		add_action( 'wp_async_task_before_job', array( $this, 'async_before_job_track_time' ), 9999, 1 );
 		add_action( 'wp_async_task_after_job', array( $this, 'async_after_job_set_attribute' ), 9999, 1 );
@@ -170,11 +170,12 @@ class WP_NR_APM {
 	}
 	
 	/**
-	 * 
+	 * Set post_id custom parameter if it's single post
+	 *
+	 * @param $wp
 	 */
-
-	public function set_post_id( $query ) {
-		if( is_single() ) {
+	public function set_post_id( $wp ) {
+		if( is_single() && function_exists( 'newrelic_add_custom_parameter' ) ) {
 			newrelic_add_custom_parameter( 'post_id', apply_filters( 'wp_nr_post_id', get_the_ID() ) );
 		}
 	}
