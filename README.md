@@ -28,31 +28,50 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
 ### User
 
 User attribute is getting set using [newrelic_set_user_attributes](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes). If user is logged in, user ID will be set to user attribute and if not it will be set to`not-logged-in`.  
-Ex: in New Relic Insights you can query transactions for non-logged in users as
+Ex: In New Relic Insights you can query transactions for non-logged in users as
 ```
-SELECT * from Transaction where user = 'not-logged-in'
+SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
+```
+
+### Post ID
+For single post, post ID will be set via `post_id` custom parameter in transaction.
+  
+Ex: Get all transactions for a post ID 190.
+```
+SELECT * FROM Transaction WHERE appName = '{appName}' AND post_id = '190'
+```
+
+One can also query for post view count for post 190.
+```
+SELECT count(*) FROM Transaction WHERE appName = '{appName}' AND post_id = '190'
 ```
 
 ### Template
 
-Template of current request will be set with `template` key.
+For each request, template being used getting set as `template` custom parameter in transaction.
 
+Ex: You can query all transactions for a particular template as following.
+```
+SELECT * FROM Transaction WHERE appName = '{appName}' AND template = '{Absolute Template Path}'
+```
 
 ### Theme
 
-Current theme will be set with “theme” custom attribute.
+Current theme is getting set as `theme` custom parameter in transaction.
 
+Ex: Query all transactions for "Twenty Fifteen" theme.
 ```
-SELECT * from Transaction where theme = 'Twenty Fifteen'
+SELECT * FROM Transaction WHERE appName = '{appName}' AND theme = 'Twenty Fifteen'
 ```
 
 ### Request type
 
-Whether request is of type web/ajax/cli/ etc. can be determined using “request_type” custom attribute. Request type can be override using wp_nr_request_type filter.
-Possible values are ajax, cron, cli, gearman, web.
+There can be 3 type of requests namely web, ajax and cli. Current request type getting set as `request_type` custom parameter in transaction.
+Request type can be override using wp_nr_request_type filter.
 
+Ex: Get all transaction for "ajax" request type
 ```
-SELECT * from Transaction where request_type = 'ajax'
+SELECT * FROM Transaction WHERE appName = '{appName}' AND request_type = 'ajax'
 ```
 
 ### Transaction Name
