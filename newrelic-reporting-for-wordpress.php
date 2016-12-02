@@ -2,9 +2,9 @@
 
 /**
  * Plugin Name: New Relic Reporting for WordPress
- * Description: New Relic APM  reports for WordPress
- * Version:     0.1
- * Author:      Ritesh Patel, 10up
+ * Description: New Relic APM reports for WordPress
+ * Version:     1.0
+ * Author:      10up
  * Author URI:  https://10up.com
  * License:     GPLv2 or later
  * Text Domain: wp-newrelic
