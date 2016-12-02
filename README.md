@@ -1,6 +1,8 @@
 # WP New Relic
 
-WP New Relic (WPNR) uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 6.7.0.174.
+WP New Relic (WPNR) is designed to use with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 6.7.0.174.
+
+New Relic is a trademark of New Relic, Inc.
 
 ## Admins settings
 
@@ -85,7 +87,7 @@ Using __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to 
 Note: This function can be used more than once but only last use will be considered to log the error to New Relic. It’s limitation of [PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error).
 
 ```
-wp_nr_log_errors( 'Got this error', Exception $exception );
+wp_nr_log_errors( 'Error message', Exception $exception );
 ```
 
 ### Runtime of async tasks
