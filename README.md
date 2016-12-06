@@ -94,6 +94,20 @@ wp_nr_log_errors( 'Error message', Exception $exception );
 
 This plugin also tracks runtime of [gearman](https://github.com/10up/WP-Gears) async tasks. Gearman async task run for a particular hook and it’s runtime can be track using “wp_async_task-{hook}” custom attribute in New Relic Insights.
 
+## Screenshots
+
+![wp-nr-transactions](https://cloud.githubusercontent.com/assets/2941333/20933334/bccaf1bc-bbfd-11e6-92a5-6da6dff31cf0.png)
+(Transactions in New Relic APM)
+
+![wp-nr-single-post-query](https://cloud.githubusercontent.com/assets/2941333/20933383/e032337c-bbfd-11e6-8ee6-87b1783cb1ad.png)
+(New Relic Insights query for a single post)
+
+![wp-nr-total-post-view-count](https://cloud.githubusercontent.com/assets/2941333/20933411/f2be3bd0-bbfd-11e6-847a-08f8a838d968.png)
+(Total post view counts for a single post using post_id custom parameter)
+
+![wp-nr-databaseduration-query](https://cloud.githubusercontent.com/assets/2941333/20933427/ffb5652a-bbfd-11e6-97fa-ca68d66c579d.png)
+(Get Template used and Transactions whose database duration is more than 0.1)
+
 ## Development
 
 ### Issues
