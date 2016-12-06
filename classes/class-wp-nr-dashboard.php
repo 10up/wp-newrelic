@@ -79,7 +79,10 @@ class WP_NR_Dashboard {
 				<table class="form-table">
 					<tr>
 						<th scope="row"><label for="wp_nr_capture_urls"><?php esc_html_e( 'Capture URLs', 'wp-newrelic' ); ?></label></th>
-						<td><input type="checkbox" name="wp_nr_capture_urls" <?php checked( true, $is_capture ) ?>></td>
+						<td>
+							<input type="checkbox" name="wp_nr_capture_urls" <?php checked( true, $is_capture ) ?>>
+							<p class="description"><?php esc_html_e( 'Enable this to record parameter passed to PHP script via the URL (everything after the "?" in the URL).', 'wp-newrelic' ) ?></p>
+						</td>
 					</tr>
 				</table>
 				<?php
