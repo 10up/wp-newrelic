@@ -47,19 +47,25 @@ class WP_NR_Dashboard {
 	 * Add menu page
 	 */
 	public function action_admin_menu() {
-		$capability  = 'manage_options';
-		
 		if ( WP_NR_IS_NETWORK_ACTIVE ) {
-			$capability  = 'manage_network';
+			add_menu_page(
+				'New Relic',
+				'New Relic',
+				'manage_network',
+				'wp-nr-settings',
+				array( $this, 'dashboard_page' ),
+				'',
+				20
+			);
+		} else {
+			add_management_page(
+				'New Relic',
+				'New Relic',
+				'manage_options',
+				'wp-nr-settings',
+				array( $this, 'dashboard_page' )
+			);
 		}
-		
-		add_management_page(
-			'New Relic',
-			'New Relic',
-			$capability,
-			'wp-nr-settings',
-			array( $this, 'dashboard_page' )
-		);
 	}
 	
 	/**
