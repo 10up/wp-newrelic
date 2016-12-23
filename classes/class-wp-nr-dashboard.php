@@ -53,14 +53,12 @@ class WP_NR_Dashboard {
 			$capability  = 'manage_network';
 		}
 		
-		add_menu_page(
+		add_management_page(
 			'New Relic',
 			'New Relic',
 			$capability,
 			'wp-nr-settings',
-			array( $this, 'dashboard_page' ),
-			'',
-			20
+			array( $this, 'dashboard_page' )
 		);
 	}
 	
