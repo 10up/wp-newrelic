@@ -6,13 +6,13 @@ New Relic is a trademark of New Relic, Inc.
 
 ## Admins settings
 
-Admin settings can be browse after activating plugin. You should see a new option named __New Relic__ in admin menu. In case of WPMU, menu option could be found in network dashboard.
+Admin settings can be browse after activating plugin. You should see a new sub menu item under Tools named __New Relic__ in admin menu. In case of WPMU, menu option could be found in network dashboard.
 
-### Capture URL
+### Capture URL Parameters
 
-If Capture URLs setting is enabled, it will capture URL parameters for displaying in transaction traces.
+If Capture URL Parameters setting is enabled, it will capture URL parameters for displaying in transaction traces.
 
-![screenshot from 2016-11-07 01 40 25](https://cloud.githubusercontent.com/assets/2941333/20041170/60d41e3a-a48b-11e6-9282-3f12d874606f.png)
+![wp-nr-settings](https://cloud.githubusercontent.com/assets/2941333/21451161/df67a576-c922-11e6-95fb-06f6be88ecce.png)
 
 ## Basic Config
 
