@@ -18,6 +18,15 @@ class WP_NR_Helper {
 	}
 	
 	/**
+	 * Check if disable for AMP setting is enabled or not
+	 *
+	 * @return bool
+	 */
+	public static function is_disable_amp() {
+		return self::get_setting( 'wp_nr_disable_amp' );
+	}
+	
+	/**
 	 * Get single setting
 	 *
 	 * @param $setting

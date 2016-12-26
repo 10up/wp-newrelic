@@ -23,6 +23,10 @@ class WP_NR_APM {
 		
 		add_action( 'wp_async_task_before_job', array( $this, 'async_before_job_track_time' ), 9999, 1 );
 		add_action( 'wp_async_task_after_job', array( $this, 'async_after_job_set_attribute' ), 9999, 1 );
+		
+		if( WP_NR_Helper::is_disable_amp() ) {
+			add_action( 'pre_amp_render_post', array( $this, 'disable_nr_autorum' ), 9999, 1 );
+		}
 	}
 	
 	/**
@@ -249,6 +253,20 @@ class WP_NR_APM {
 		$app_name = $home_url['host'] . ( isset( $home_url['path'] ) ? $home_url['path'] : '' );
 		
 		return apply_filters( 'wp_nr_app_name', $app_name );
+	}
+	
+	/**
+	 * Disable New Relic autorum
+	 *
+	 * @param $post_id
+	 */
+	public function disable_nr_autorum( $post_id ) {
+		if( ! function_exists( 'newrelic_disable_autorum' ) ) {
+			return;
+		}
+		if( apply_filters( 'disable_post_autorum', true, $post_id ) ) {
+			newrelic_disable_autorum();
+		}
 	}
 	
 }
