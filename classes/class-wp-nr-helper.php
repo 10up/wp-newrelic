@@ -14,10 +14,22 @@ class WP_NR_Helper {
 	 */
 	public static function is_capture_url() {
 		
+		return self::get_setting( 'wp_nr_capture_urls' );
+	}
+	
+	/**
+	 * Get single setting
+	 *
+	 * @param $setting
+	 *
+	 * @return bool
+	 */
+	public static function get_setting( $setting ) {
+		
 		if( WP_NR_IS_NETWORK_ACTIVE ) {
-			$return = (bool) get_site_option( 'wp_nr_capture_urls', false );
+			$return = (bool) get_site_option( $setting, false );
 		} else {
-			$return = (bool) get_option( 'wp_nr_capture_urls', false );
+			$return = (bool) get_option( $setting, false );
 		}
 		
 		return $return;
