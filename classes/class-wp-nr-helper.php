@@ -6,17 +6,17 @@
  * Class WP_NR_Helper
  */
 class WP_NR_Helper {
-	
+
 	/**
 	 * Check if capture url setting is enabled or not
 	 *
 	 * @return bool
 	 */
 	public static function is_capture_url() {
-		
+
 		return self::get_setting( 'wp_nr_capture_urls' );
 	}
-	
+
 	/**
 	 * Check if disable for AMP setting is enabled or not
 	 *
@@ -25,7 +25,7 @@ class WP_NR_Helper {
 	public static function is_disable_amp() {
 		return self::get_setting( 'wp_nr_disable_amp' );
 	}
-	
+
 	/**
 	 * Get single setting
 	 *
@@ -34,14 +34,13 @@ class WP_NR_Helper {
 	 * @return bool
 	 */
 	public static function get_setting( $setting ) {
-		
-		if( WP_NR_IS_NETWORK_ACTIVE ) {
+
+		if ( WP_NR_IS_NETWORK_ACTIVE ) {
 			$return = (bool) get_site_option( $setting, false );
 		} else {
 			$return = (bool) get_option( $setting, false );
 		}
-		
+
 		return $return;
 	}
-	
 }

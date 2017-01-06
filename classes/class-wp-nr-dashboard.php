@@ -6,42 +6,42 @@
  * Class to handle options page and saving options
  */
 class WP_NR_Dashboard {
-	
+
 	public function __construct() {
-		
-		if( WP_NR_IS_NETWORK_ACTIVE ) {
+
+		if ( WP_NR_IS_NETWORK_ACTIVE ) {
 			// Network setting
 			add_action( 'network_admin_menu', array( $this, 'action_admin_menu' ) );
 		} else {
 			add_action( 'admin_menu', array( $this, 'action_admin_menu' ) );
 		}
-		
+
 		// save settings
 		add_action( 'admin_init', array( $this, 'save_settings' ) );
 	}
-	
+
 	/**
 	 * Save settings
 	 */
 	public function save_settings() {
 		$nonce = filter_input( INPUT_POST, 'wp_nr_settings', FILTER_SANITIZE_STRING );
-		
-		if( wp_verify_nonce( $nonce, 'wp_nr_settings' ) ) {
+
+		if ( wp_verify_nonce( $nonce, 'wp_nr_settings' ) ) {
 			$capture_url = filter_input( INPUT_POST, 'wp_nr_capture_urls' );
 			$disable_amp = filter_input( INPUT_POST, 'wp_nr_disable_amp' );
-			
-			if( ! empty( $capture_url ) ) {
+
+			if ( ! empty( $capture_url ) ) {
 				$capture_url = true;
 			} else {
 				$capture_url = false;
 			}
-			
-			if( ! empty( $disable_amp ) ) {
+
+			if ( ! empty( $disable_amp ) ) {
 				$disable_amp = true;
 			} else {
 				$disable_amp = false;
 			}
-			
+
 			if ( WP_NR_IS_NETWORK_ACTIVE ) {
 				update_site_option( 'wp_nr_capture_urls', $capture_url );
 				update_site_option( 'wp_nr_disable_amp', $disable_amp );
@@ -51,7 +51,7 @@ class WP_NR_Dashboard {
 			}
 		}
 	}
-	
+
 	/**
 	 * Add menu page
 	 */
@@ -76,7 +76,7 @@ class WP_NR_Dashboard {
 			);
 		}
 	}
-	
+
 	/**
 	 * Option page
 	 */
