@@ -1,6 +1,6 @@
 # WP New Relic
 
-WP New Relic (WPNR) is designed to be used with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with New Relic's PHP Agent version 6.7.0.174. Data collected by this plugin can be queried in [New Relic's Insights](https://newrelic.com/insights/) product, using [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference).
+WP New Relic (WPNR) is designed to be used with the [New Relic APM](https://newrelic.com/application-monitoring), which uses the [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to augment existing metrics with valuable WordPress details such as templates, users, request type, and [Transaction](https://docs.newrelic.com/docs/apm/transactions) names. This plugin is tested with New Relic's PHP Agent version 6.7.0.174. Data collected by this plugin can be queried in [New Relic's Insights](https://newrelic.com/insights/) product, using [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference).
 
 New Relic is a trademark of New Relic, Inc.
 
@@ -12,7 +12,7 @@ Admin settings can be browsed after activating the plugin. You should see a new 
 
 ### Capture URL Parameters
 
-If the Capture URLs setting is enabled, the plugin will capture URL parameters for displaying in transaction traces. As an example, turning on this feature will store a URL like http://example.com/?p=1234, while leaving it off will result in the URL being stored as http://example.com/. This feature can be useful for debugging or providing granular data if required. In certain cases, however, it can cause confusion by creating a "false positive" appearance of multiple URLs (e.g. UTM codes or tracking info from social media).
+If the __Capture URLs__ setting is enabled, the plugin will capture URL parameters for displaying in Transaction traces. As an example, turning on this feature will store a URL like http://example.com/?p=1234, while leaving it off will result in the URL being stored as http://example.com/. This feature can be useful for debugging or providing granular data if required. In certain cases, however, it can cause confusion by creating a "false positive" appearance of multiple URLs (e.g. UTM codes or tracking info from social media).
 
 ### Disable for AMP
 
@@ -25,7 +25,7 @@ By default the plugin will setup 3 New Relic configuration parameters:
 - newrelic.capture_params
 - newrelic.framework (value is 'wordpress')
 
-appname and capture_params config can be overridden using the __wp_nr_config filter__. The __wp_nr_setup_config__ action hook can also be used to setup any extra config.
+__appname__ and __capture_params__ config can be overridden using the __wp_nr_config filter__. The __wp_nr_setup_config__ action hook can also be used to setup any extra config.
 
 ## New Relic Custom Attributes
 
@@ -34,7 +34,7 @@ Certain useful custom attributes (you can think of these as 'post meta for New R
 ### User
 
 The user attribute is set using [newrelic_set_user_attributes](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes). If the user is logged in, the user ID will be set as the user attribute and if not the user attribute will be set to `not-logged-in`.  
-Ex: In New Relic Insights you can query transactions for non-logged in users as
+Ex: In New Relic Insights you can query Transactions for non-logged in users as
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
 ```
@@ -42,7 +42,7 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
 ### Post ID
 For single posts, the post ID will be set via the `post_id` custom attribute.
   
-Ex: Get all transactions for a post with ID 190.
+Ex: Get all Transactions for a post with ID 190.
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND post_id = '190'
 ```
@@ -54,9 +54,9 @@ SELECT count(*) FROM Transaction WHERE appName = '{appName}' AND post_id = '190'
 
 ### Template
 
-For each request, the Template being used is set as the `template` custom parameter in transaction.
+For each request, the Template being used is set as the `template` custom attribute.
 
-Ex: You can query all transactions for a particular template.
+Ex: You can query all Transactions for a particular template.
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND template = '{Absolute Template Path}'
 ```
@@ -65,7 +65,7 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND template = '{Absolute 
 
 The current theme is set as the `theme` custom attribute.
 
-Ex: Query all transactions running the "Twenty Fifteen" theme.
+Ex: Query all Transactions running the "Twenty Fifteen" theme.
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND theme = 'Twenty Fifteen'
 ```
@@ -75,7 +75,7 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND theme = 'Twenty Fiftee
 There can be 3 type of requests: __web__, __ajax__ and __cli__. The current request type is set as the `request_type` custom attribute.
 The request type can be overridden using the __wp_nr_request_type__ filter.
 
-Ex: Get all transactions for the "ajax" request type
+Ex: Get all Transactions for the "ajax" request type
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND request_type = 'ajax'
 ```
