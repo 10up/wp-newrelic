@@ -114,6 +114,11 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 
 ## Development
 
+The WP New Relic plugin is developed and maintained by 10up, Inc.
+<p align="center">
+<a href="http://10up.com/contact/"><img src="https://10updotcom-wpengine.s3.amazonaws.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
+</p>
+
 ### Issues
 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
