@@ -6,7 +6,7 @@ New Relic is a trademark of New Relic, Inc.
 
 ## Administrative settings
 
-Admin settings can be browsed after activating the plugin. You should see a new option named __New Relic__ under the Tools menu in your WordPress Dashboard. If you are running WordPress in Network Mode, the settings page will be found in your Network Dashboard.
+After activating the plugin, You will see a new option named __New Relic__ under the Tools menu in your WordPress Dashboard. If you are running WordPress in Network Mode, the settings page will be found in your Network Dashboard.
 
 ![wp-nr-settings](https://cloud.githubusercontent.com/assets/2941333/21731687/906addd0-d47b-11e6-9f58-e71c17425906.png)
 
@@ -21,11 +21,11 @@ If the __Disable for AMP__ setting is enabled, it will disable New Relic for AMP
 ## Basic Config
 
 By default the plugin will setup 3 New Relic configuration parameters:
-- newrelic.appname
-- newrelic.capture_params
-- newrelic.framework (value is 'wordpress')
+- [newrelic.appname](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration#inivar-appname)
+- [newrelic.capture_params](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration#inivar-capture_params)
+- [newrelic.framework](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration#inivar-framework) (default value is 'wordpress')
 
-__appname__ and __capture_params__ config can be overridden using the __wp_nr_config filter__. The __wp_nr_setup_config__ action hook can also be used to setup any extra config.
+__appname__ and __capture_params__ config can be overridden using the [__wp_nr_config](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L36) filter__. The [__wp_nr_setup_config__](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L51) action hook can also be used to setup any extra config.
 
 ## New Relic Custom Attributes
 
@@ -88,7 +88,7 @@ Possible values are Default Home Page, Front Page, Blog Page, Network Dashboard,
 ### Custom Error Logging
 
 Using the __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to New Relic for the current Transaction. 
-Note: This function can be called more than once, but only the last call will log the error to New Relic. This is a know limitation of the [PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error).
+Note: This function can be called more than once, but only the last call will log the error to New Relic. This is a known limitation of the [PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error). As a reminder, since the PHP Agent runs only when PHP does, any cached requests will not appear in your error logs.
 
 ```
 wp_nr_log_errors( 'Error message', Exception $exception );
