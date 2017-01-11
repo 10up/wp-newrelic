@@ -25,7 +25,7 @@ By default the plugin will setup 3 New Relic configuration parameters:
 - [newrelic.capture_params](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration#inivar-capture_params)
 - [newrelic.framework](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-configuration#inivar-framework) (default value is 'wordpress')
 
-__appname__ and __capture_params__ config can be overridden using the [__wp_nr_config](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L36) filter__. The [__wp_nr_setup_config__](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L51) action hook can also be used to setup any extra config.
+__appname__ and __capture_params__ config can be overridden using the [__wp_nr_config__](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L36) filter. The [__wp_nr_setup_config__](https://github.com/10up/wp-newrelic/blob/9ec2b8d5c9e72504052a98cbb76d2e4b2e1b2b29/classes/class-wp-nr-apm.php#L51) action hook can also be used to setup any extra config.
 
 ## New Relic Custom Attributes
 
