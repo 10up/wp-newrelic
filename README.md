@@ -119,6 +119,10 @@ The WP New Relic plugin is developed and maintained by 10up, Inc.
 <a href="http://10up.com/contact/"><img src="https://10updotcom-wpengine.s3.amazonaws.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
 </p>
 
+### License
+
+The WP New Relic plugin is released under the [GNU Public License v2](http://www.gnu.org/licenses/gpl-2.0.html) or later. 
+
 ### Issues
 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
