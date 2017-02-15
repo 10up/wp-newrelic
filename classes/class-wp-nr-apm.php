@@ -195,7 +195,7 @@ class WP_NR_APM {
         if ( function_exists( 'newrelic_add_custom_parameter' ) ) {
             //prefixing with wpnr_ to avoid collisions with reserved works in NRQL
             $key = 'wpnr_' . $key;
-            return newrelic_add_custom_parameter( $key, apply_filters( 'wp_nr_add_custom_parameter', $key, $value ) );
+            return newrelic_add_custom_parameter( $key, apply_filters( 'wp_nr_add_custom_parameter', $value, $key ) );
         }
 
         return false;
