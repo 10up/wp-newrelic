@@ -141,6 +141,9 @@ class WP_NR_APM {
 			} elseif ( is_date() ) {
 				$transaction = 'Date Archive';
 			} elseif ( is_search() ) {
+				if ( isset( $query->query['s'] ) ) {
+					$this->add_custom_parameter( 'search', $query->query['s'] );
+				}
 				$transaction = 'Search Page';
 			} elseif ( is_feed() ) {
 				$transaction = 'Feed';
