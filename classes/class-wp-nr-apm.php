@@ -134,10 +134,10 @@ class WP_NR_APM {
 				$post_type = ( ! empty( $query->query['post_type'] ) ) ? $query->query['post_type'] : 'Post';
 				$transaction = "Single - {$post_type}";
 			} elseif ( is_page() ) {
-                if ( isset( $query->query['pagename'] ) ) {
-                    $this->add_custom_parameter( $query->query['pagename'] );
-                }
-                $transaction = "Page";
+				if ( isset( $query->query['pagename'] ) ) {
+					$this->add_custom_parameter( $query->query['pagename'] );
+				}
+				$transaction = "Page";
 			} elseif ( is_date() ) {
 				$transaction = 'Date Archive';
 			} elseif ( is_search() ) {
@@ -151,9 +151,9 @@ class WP_NR_APM {
 				$post_type = post_type_archive_title( '', false );
 				$transaction = "Archive - {$post_type}";
 			} elseif ( is_category() ) {
-                if ( isset( $query->query['category_name'] ) ) {
-                    $this->add_custom_parameter( 'cat_slug', $query->query['category_name'] );
-                }
+				if ( isset( $query->query['category_name'] ) ) {
+					$this->add_custom_parameter( 'cat_slug', $query->query['category_name'] );
+				}
 				$transaction = "Category";
 			} elseif ( is_tag() ) {
 				if ( isset( $query->query['tag'] ) ) {
@@ -163,7 +163,7 @@ class WP_NR_APM {
 			} elseif ( is_tax() ) {
 				$tax    = key( $query->tax_query->queried_terms );
 				$term   = implode( ' | ', $query->tax_query->queried_terms[ $tax ]['terms'] );
-                $this->add_custom_parameter( 'term_slug', $term );
+				$this->add_custom_parameter( 'term_slug', $term );
 				$transaction = "Tax - {$tax}";
 			}
 
@@ -184,25 +184,25 @@ class WP_NR_APM {
 		}
 	}
 
-    /**
-     * Adds a custom parameter through `newrelic_add_custom_parameter`
-     * Prefixes the $key with 'wpnr_' to avoid collisions with NRQL reserved words
-     *
-     * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
-     *
-     * @param $key      string  Custom parameter key
-     * @param $value    string  Custom parameter value
-     * @return bool
-     */
+	/**
+	 * Adds a custom parameter through `newrelic_add_custom_parameter`
+	 * Prefixes the $key with 'wpnr_' to avoid collisions with NRQL reserved words
+	 *
+	 * @see https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-custom-param
+	 *
+	 * @param $key      string  Custom parameter key
+	 * @param $value    string  Custom parameter value
+	 * @return bool
+	 */
 	public function add_custom_parameter( $key, $value ) {
-        if ( function_exists( 'newrelic_add_custom_parameter' ) ) {
-            //prefixing with wpnr_ to avoid collisions with reserved works in NRQL
-            $key = 'wpnr_' . $key;
-            return newrelic_add_custom_parameter( $key, apply_filters( 'wp_nr_add_custom_parameter', $value, $key ) );
-        }
+		if ( function_exists( 'newrelic_add_custom_parameter' ) ) {
+			//prefixing with wpnr_ to avoid collisions with reserved works in NRQL
+			$key = 'wpnr_' . $key;
+			return newrelic_add_custom_parameter( $key, apply_filters( 'wp_nr_add_custom_parameter', $value, $key ) );
+		}
 
-        return false;
-    }
+		return false;
+	}
 
 	/**
 	 * Custom error logging
