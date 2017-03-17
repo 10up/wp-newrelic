@@ -27,6 +27,23 @@ class WP_NR_Helper {
 	}
 
 	/**
+	 * Get details of any registered dashboard widget embeddables
+	 *
+	 * @return array array of dashboard widgets: [{
+	 *   @var string $title
+	 *   @var string $embed_id    Required
+	 *   @var string $description 
+	 * }]
+	 */
+    public static function dashboard_widgets() {
+		$dashboard_widgets = get_option( 'wp_nr_dashboard_widgets', array() );
+
+		return array_filter( $dashboard_widgets, function( $dashboard_widget ) {
+			return ! empty( $dashboard_widget['embed_id'] );
+		} );
+    }
+
+	/**
 	 * Get single setting
 	 *
 	 * @param $setting
@@ -43,4 +60,5 @@ class WP_NR_Helper {
 
 		return $return;
 	}
+
 }
