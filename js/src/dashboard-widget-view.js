@@ -38,20 +38,21 @@
 
 		initialize: function() {
 			this.widgets = WP_NewRelic.dashboardWidgets;
-			this.i18n = WP_NewRelic.i18n;
+			this.strings = WP_NewRelic.strings;
 			this.render();
 		},
 
 		render: function() {
 			var previewTemplate = _.template( $( "#view-dashboard-widget" ).html() ),
-				addNewTemplate = _.template( $( "#add-edit-dashboard-widget" ).html() );
+				addNewTemplate  = _.template( $( "#add-edit-dashboard-widget" ).html() ),
+                strings         = this.strings,
+                self            = this;
 
-			var self = this;
 			_.each( self.widgets, function( widget ) {
 				var widgetModel = new DashboardWidgetModel( widget );
-				self.$el.append( previewTemplate( { model: widgetModel }) );
+				self.$el.append( previewTemplate( { model: widgetModel, strings: strings }) );
 			} );
-			this.$el.append( addNewTemplate( ) );
+			this.$el.append( addNewTemplate( { strings: strings } ) );
 		}
 	} );
 

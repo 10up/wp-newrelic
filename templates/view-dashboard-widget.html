@@ -3,13 +3,15 @@
 		<tr class="nr-dashboard-widget-row">
 			<th scope="row">
 				<label><%= model.get('title') %></label>
-				<a class="submitdelete" href=""><?php esc_html_e( 'Delete', 'wp-newrelic' ) ?></a>
+				<p class="actions">
+					<a class="submitdelete" href=""><%= strings.delete %></a>
+				</p>
 			</th>
-			<td style="max-width: 400px;">
+			<td style="display: block; max-height: 225px;">
 				<input type="hidden" name="wp_nr_dashboard_widgets[][title]" value="<%= model.get('title') %>" />
 				<input type="hidden" name="wp_nr_dashboard_widgets[][embedID]" value="<%= model.get('embedID') %>" />
 				<input type="hidden" name="wp_nr_dashboard_widgets[][description]" value="<%= model.get('description') %>" />
-				<div style="position: relative; width: 400px; max-width: 100%; height: 0; max-height: 225px; padding-top: 56.25%;">
+				<div style="position: relative; width: 400px; max-width: 100%; height: 0; padding-top: 56.25%;">
 					<iframe src="<% print( model.embedUrl() ) %>"
 						style="position: absolute; top: 0; left: 0; width: 100%; max-width: 400px; height: 100%; max-height: 225px;"
 						frameborder="0"></iframe>

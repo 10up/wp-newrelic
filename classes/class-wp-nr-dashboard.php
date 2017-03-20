@@ -35,7 +35,10 @@ class WP_NR_Dashboard {
 
 		wp_localize_script( 'nr-dashboard-widget-view', 'WP_NewRelic',
 			array(
-				'dashboardWidgets' => WP_NR_Helper::dashboard_widgets()
+				'dashboardWidgets' => WP_NR_Helper::dashboard_widgets(),
+				'strings' => array(
+					'delete' => esc_html__( 'Delete', 'wp-newrelic' )
+				),
 			)
 		);
 	}
