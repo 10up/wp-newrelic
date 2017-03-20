@@ -53,7 +53,21 @@
 				self.$el.append( previewTemplate( { model: widgetModel, strings: strings }) );
 			} );
 			this.$el.append( addNewTemplate( { strings: strings } ) );
-		}
+		},
+
+		deleteWidget: function( $widgetView ) {
+			$widgetView.remove();
+			return false;
+		},
+
+		events: {
+			'click .submitdelete': function(e) {
+				var widget =  $( e.currentTarget ).closest( '.form-table' );
+				this.deleteWidget( widget );
+				return false;
+			}
+	},
+
 	} );
 
 	// Entry point: on load, render the Backbone view holding the form, using
