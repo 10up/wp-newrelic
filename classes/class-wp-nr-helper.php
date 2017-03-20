@@ -32,14 +32,14 @@ class WP_NR_Helper {
 	 * @return array array of dashboard widgets: [{
 	 *   @var string $title
 	 *   @var string $embed_id    Required
-	 *   @var string $description 
+	 *   @var string $description
 	 * }]
 	 */
     public static function dashboard_widgets() {
 		$dashboard_widgets = get_option( 'wp_nr_dashboard_widgets', array() );
 
 		return array_filter( $dashboard_widgets, function( $dashboard_widget ) {
-			return ! empty( $dashboard_widget['embed_id'] );
+			return ! empty( $dashboard_widget['embedID'] );
 		} );
     }
 

@@ -22,8 +22,22 @@ class WP_NR_Dashboard {
 		// save settings
 		add_action( 'admin_init', array( $this, 'save_settings' ) );
 
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+
         // Add dashboard meta boxes if required.
         add_action( 'wp_dashboard_setup', array( $this, 'action_wp_dashboard_setup') );
+	}
+
+	public function admin_enqueue_scripts() {
+		wp_enqueue_script( 'nr-dashboard-widget-view', WP_NR_URL . 'js/src/dashboard-widget-view.js',
+			array( 'jquery', 'underscore', 'backbone' )
+		);
+
+		wp_localize_script( 'nr-dashboard-widget-view', 'WP_NewRelic',
+			array(
+				'dashboardWidgets' => WP_NR_Helper::dashboard_widgets()
+			)
+		);
 	}
 
 	/**
@@ -57,23 +71,23 @@ class WP_NR_Dashboard {
 				update_option( 'wp_nr_disable_amp', $disable_amp );
 			}
 
-			$dashboard_widgets = (array) $_POST['wp_nr_dashboard_widgets'];
+			$dashboard_widgets = ! empty( $_POST['wp_nr_dashboard_widgets'] ) ?
+				(array) $_POST['wp_nr_dashboard_widgets'] : array();
 			$add_dashboard_widget = stripslashes_deep( $_POST['wp_nr_add_dashboard_widget'] );
 
 			// Check if input posted for "additional dashboard widget" was valid
 			if ( ! empty( $add_dashboard_widget['embed_html'] ) &&
-				preg_match( 
-					'#<iframe[^>]* src="https://insights-embed.newrelic.com/embedded_widget/([A-Za-z0-9]*)"#',  
+				preg_match(
+					'#<iframe[^>]* src="https://insights-embed.newrelic.com/embedded_widget/([A-Za-z0-9]*)"#',
 					$add_dashboard_widget['embed_html'],
 					$embed_html_matches ) ) {
 
 				$dashboard_widgets[] = array(
 					'title'       => sanitize_text_field( $add_dashboard_widget['title'] ),
-					'embed_id'    => $embed_html_matches[1],
+					'embedID'    => $embed_html_matches[1],
 					'description' => sanitize_text_field( $add_dashboard_widget['description'] )
 				);
 			}
-
 
 			update_option( 'wp_nr_dashboard_widgets', $dashboard_widgets );
 		}
@@ -115,11 +129,11 @@ class WP_NR_Dashboard {
 			//wp_die( var_dump( $dashboard_widgets ) );
 		foreach ( $dashboard_widgets as $i => $dashboard_widget ) {
 			$title = ! empty( $dashboard_widget['title'] ) ? $dashboard_widget['title'] : sprintf( __( 'New relic widget %s', 'wp-newrelic' ), $i );
-			$embed_id = $dashboard_widget['embed_id']; // Validated on retrieval, as this field is required
+			$embed_id = $dashboard_widget['embedID']; // Validated on retrieval, as this field is required
 			$description = ! empty( $dashboard_widget['description'] ) ? $dashboard_widget['description'] : '';
 
 			wp_add_dashboard_widget(
-				sanitize_title( $title ), $title, 
+				sanitize_title( $title ), $title,
 				function() use ( $title, $embed_id, $description ) {
 					$this->render_dashboard_widget( $title, $embed_id, $description );
 				}
@@ -139,13 +153,13 @@ class WP_NR_Dashboard {
 	public function render_dashboard_widget( $title, $embed_id, $description ) {
 		?>
 			<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;">
-				<iframe src="<?php echo esc_url( "https://insights-embed.newrelic.com/embedded_widget/{$embed_id}" ); ?>" 
+				<iframe src="<?php echo esc_url( "https://insights-embed.newrelic.com/embedded_widget/{$embed_id}" ); ?>"
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
 					frameborder="0"></iframe>
 			</div>
 		<?php if ( ! empty( $description ) ) : ?>
 			<p class="description"><?php echo wp_kses_post( $description ); ?></p>
-		<?php endif; // ! empty( $description ) 
+		<?php endif; // ! empty( $description )
 	}
 
 	/**
@@ -180,51 +194,16 @@ class WP_NR_Dashboard {
 				</table>
 				<h2 class="title"><?php esc_html_e( 'Embeddable reports in dashboard', 'wp-newrelic' ); ?></h2>
 				<p><?php echo esc_html__(
-					'You may register any number of embeddable New Relic visualizations to be shown as dashboard widgets on this site.', 
+					'You may register any number of embeddable New Relic visualizations to be shown as dashboard widgets on this site.',
 					'wp-newrelic' ); ?></p>
-			<?php if ( $dashboard_widgets ) {
-				foreach ( $dashboard_widgets as $i => $dashboard_widget ) { ?>
-					<table class="form-table">
-						<tr>
-							<th scope="row">
-								<label><?php echo esc_html( $dashboard_widget['title'] ); ?></label>
-								<a class="submitdelete" href=""><?php esc_html_e( 'Delete', 'wp-newrelic' ) ?></a>
-							</th>
-							<td>
-								<input type="hidden" name="wp_nr_dashboard_widgets[<?php echo absint( $i ); ?>][title]" value="<?php echo esc_attr( $dashboard_widget['title'] ); ?>" />
-								<input type="hidden" name="wp_nr_dashboard_widgets[<?php echo absint( $i ); ?>][embed_id]" value="<?php echo esc_attr( $dashboard_widget['embed_id'] ); ?>" />
-								<input type="hidden" name="wp_nr_dashboard_widgets[<?php echo absint( $i ); ?>][description]" value="<?php echo esc_attr( $dashboard_widget['description'] ); ?>" />
-							</td>
-						</tr>
-					</table>
-					<?php 
-				}
-			} else {
-				esc_html_e(
-					'You do not have any New Relic dashboard widgets registered yet. Add one here:',
-					'wp-newrelic'
-				);
-			} ?>
-			<h3 class="sub-title"><?php esc_html_e( 'Add new dashboard widget:', 'wp_newrelic' ); ?></h3>
-				<table class="form-table">
-					<tr>
-					<th scope="row"><label for=""><?php esc_html_e( 'Title', 'wp-newrelic' ); ?></label></th>
-						<td><input class="widefat" type="text" name="wp_nr_add_dashboard_widget[title]" /></td>
-					</tr>
-					<tr>
-					<th scope="row"><label for=""><?php esc_html_e( 'Embed HTML', 'wp-newrelic' ); ?></label></th>
-						<td><textarea class="widefat" type="text" name="wp_nr_add_dashboard_widget[embed_html]" /></textarea></td>
-					</tr>
-					<tr>
-					<th scope="row"><label for=""><?php esc_html_e( 'Embed Description', 'wp-newrelic' ); ?></label></th>
-						<td><textarea class="widefat" type="text" name="wp_nr_add_dashboard_widget[description]" /></textarea></td>
-					</tr>
-				</table>
-				<?php
-				submit_button( esc_html__( 'Save Changes', 'wp-newrelic' ), 'submit primary' );
-				?>
+			<div id="wp-nr-widget-settings-form" ></div>
+			<?php submit_button( esc_html__( 'Save Changes', 'wp-newrelic' ), 'submit primary' ); ?>
 			</form>
 		</div>
 		<?php
+
+		require_once( WP_NR_PATH . 'templates/view-dashboard-widget.html' );
+		require_once( WP_NR_PATH . 'templates/add-new-dashboard-widget.html' );
+
 	}
 }

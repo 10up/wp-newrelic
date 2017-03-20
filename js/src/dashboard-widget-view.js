@@ -1,0 +1,70 @@
+/**
+ * WP New Relic
+ * http://wordpress.org/plugins
+ *
+ * Copyright (c) 2017 10up
+ * Licensed under the GPLv2+ license.
+ */
+
+( function( window, $, _, Backbone, undefined ) {
+	'use strict';
+
+	/*
+	 * Representation of the settings for a single dashboard widget
+	 *
+	 */
+	var DashboardWidgetModel = Backbone.Model.extend({
+		defaults: {
+			title: '',
+			embedID: '',
+			description: '',
+		},
+
+		embedUrl: function embedUrl() {
+			var embedID = this.get('embedID');
+			return embedID ? "https://insights-embed.newrelic.com/embedded_widget/" + embedID : "";
+		}
+	});
+
+	/*
+	 * Backbone view controlling the form for deleting and adding dashboard widgets
+	 *
+	 */
+	var DashboardWidgetTable = Backbone.View.extend({
+
+		widgets: {},
+
+		i18n: {},
+
+		initialize: function() {
+			this.widgets = WP_NewRelic.dashboardWidgets;
+			this.i18n = WP_NewRelic.i18n;
+			this.render();
+		},
+
+		render: function() {
+			var previewTemplate = _.template( $( "#view-dashboard-widget" ).html() ),
+				addNewTemplate = _.template( $( "#add-edit-dashboard-widget" ).html() );
+
+			var self = this;
+			_.each( self.widgets, function( widget ) {
+				var widgetModel = new DashboardWidgetModel( widget );
+				self.$el.append( previewTemplate( { model: widgetModel }) );
+			} );
+			this.$el.append( addNewTemplate( ) );
+		}
+	} );
+
+	// Entry point: on load, render the Backbone view holding the form, using
+	// the settings data and translation strings passed in through localization variables.
+	document.addEventListener( 'DOMContentLoaded', function() {
+		var dashboard_widget = document.getElementById( 'wp-nr-widget-settings-form' );
+
+		if ( ! dashboard_widget ) {
+			return;
+		}
+
+		new DashboardWidgetTable( { el: $( dashboard_widget ) } );
+	} );
+
+} )( this, jQuery, _, Backbone );
