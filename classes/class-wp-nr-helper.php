@@ -8,6 +8,15 @@
 class WP_NR_Helper {
 
 	/**
+	 * Retrieve the New Relic account ID, if user has entered it.
+	 *
+	 * @return string
+	 */
+	public static function nr_account_id() {
+		return get_option( 'wp_nr_account_id', '' );
+	}
+
+	/**
 	 * Check if capture url setting is enabled or not
 	 *
 	 * @return bool

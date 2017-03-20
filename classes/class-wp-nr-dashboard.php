@@ -50,9 +50,14 @@ class WP_NR_Dashboard {
 		$nonce = filter_input( INPUT_POST, 'wp_nr_settings', FILTER_SANITIZE_STRING );
 
 		if ( wp_verify_nonce( $nonce, 'wp_nr_settings' ) ) {
+
+			$account_id = filter_input( INPUT_POST, 'wp_nr_account_id' );
 			$capture_url = filter_input( INPUT_POST, 'wp_nr_capture_urls' );
 			$disable_amp = filter_input( INPUT_POST, 'wp_nr_disable_amp' );
 
+			if ( absint( $account_id ) <= 1 ) {
+				$account_id = false;
+			}
 
 			if ( ! empty( $capture_url ) ) {
 				$capture_url = true;
@@ -67,9 +72,11 @@ class WP_NR_Dashboard {
 			}
 
 			if ( WP_NR_IS_NETWORK_ACTIVE ) {
+				update_site_option( 'wp_nr_account_id', $account_id );
 				update_site_option( 'wp_nr_capture_urls', $capture_url );
 				update_site_option( 'wp_nr_disable_amp', $disable_amp );
 			} else {
+				update_option( 'wp_nr_account_id', $account_id );
 				update_option( 'wp_nr_capture_urls', $capture_url );
 				update_option( 'wp_nr_disable_amp', $disable_amp );
 			}
@@ -169,6 +176,7 @@ class WP_NR_Dashboard {
 	 * Option page
 	 */
 	public function dashboard_page() {
+		$nr_account_id = WP_NR_Helper::nr_account_id();
 		$is_capture = WP_NR_Helper::is_capture_url();
 		$is_disable_amp = WP_NR_Helper::is_disable_amp();
 		$dashboard_widgets = WP_NR_Helper::dashboard_widgets();
@@ -180,6 +188,13 @@ class WP_NR_Dashboard {
 				wp_nonce_field( 'wp_nr_settings', 'wp_nr_settings' );
 				?>
 				<table class="form-table">
+					<tr>
+						<th scope="row"><label for="wp_nr_account_id"><?php esc_html_e( 'New Relic Account ID', 'wp-newrelic' ); ?></label></th>
+						<td>
+						<input type="text" name="wp_nr_account_id" value="<?php echo esc_attr( absint( $nr_account_id ) ); ?>">
+							<p class="description"><?php esc_html_e( 'Entering your account ID here helps us provide links to documentation and reports in your New Relic dashboard.', 'wp-newrelic' ) ?></p>
+						</td>
+					</tr>
 					<tr>
 						<th scope="row"><label for="wp_nr_capture_urls"><?php esc_html_e( 'Capture URL Parameters', 'wp-newrelic' ); ?></label></th>
 						<td>
@@ -197,8 +212,17 @@ class WP_NR_Dashboard {
 				</table>
 				<h2 class="title"><?php esc_html_e( 'Embeddable reports in dashboard', 'wp-newrelic' ); ?></h2>
 				<p><?php echo esc_html__(
-					'You may register any number of embeddable New Relic visualizations to be shown as dashboard widgets on this site.',
-					'wp-newrelic' ); ?></p>
+						'You may register any number of embeddable New Relic visualizations to be shown as dashboard widgets on this site.',
+						'wp-newrelic' );
+					if ( $account_id = WP_NR_Helper::nr_account_id() ) {
+						echo ' ' . sprintf(
+							__( '<a href="%s" target="_blank">See your existing visualizations</a> or <a href="%s" target="_blank">build new reports</a> in the New relic dashboard.', 'wp-newrelic' ),
+							esc_url( "https://insights.newrelic.com/accounts/{$account_id}/manage/embeddables" ),
+							esc_url( "https://insights.newrelic.com/accounts/{$account_id}/query" )
+						);
+					}
+					?>
+				</p>
 			<div id="wp-nr-widget-settings-form" ></div>
 			<?php submit_button( esc_html__( 'Save Changes', 'wp-newrelic' ), 'submit primary' ); ?>
 			</form>
