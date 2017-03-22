@@ -24,9 +24,7 @@ class WP_NR_APM {
 		add_action( 'wp_async_task_before_job', array( $this, 'async_before_job_track_time' ), 9999, 1 );
 		add_action( 'wp_async_task_after_job', array( $this, 'async_after_job_set_attribute' ), 9999, 1 );
 
-		if ( WP_NR_Helper::is_disable_amp() ) {
-			add_action( 'pre_amp_render_post', array( $this, 'disable_nr_autorum' ), 9999, 1 );
-		}
+		add_action( 'pre_amp_render_post', array( $this, 'disable_nr_autorum' ), 9999, 1 );
 	}
 
 	/**

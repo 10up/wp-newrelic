@@ -21,8 +21,6 @@ After activating the plugin, You will see a new option named __New Relic__ under
 
 Capture URL Parameters: If Capture URLs setting is enabled, it will capture URL parameters for displaying in transaction traces.
 
-Disable for AMP: If Disable for AMP setting is enabled, it will disable New Relic for AMP endpoints.
-
 = Basic Config =
 
 By default plugin will setup 3 configs.

@@ -14,10 +14,6 @@ After activating the plugin, You will see a new option named __New Relic__ under
 
 If the __Capture URLs__ setting is enabled, the plugin will capture URL parameters for displaying in Transaction traces. As an example, turning on this feature will store a URL like http://example.com/?p=1234, while leaving it off will result in the URL being stored as http://example.com/. This feature can be useful for debugging or providing granular data if required. In certain cases, however, it can cause confusion by creating a "false positive" appearance of multiple URLs (e.g. UTM codes or tracking info from social media).
 
-### Disable for AMP
-
-If the __Disable for AMP__ setting is enabled, it will disable New Relic for AMP endpoints.
-
 ## Basic Config
 
 By default the plugin will setup 3 New Relic configuration parameters:
@@ -33,7 +29,7 @@ Certain useful custom attributes (you can think of these as 'post meta for New R
 
 ### User
 
-The user attribute is set using [newrelic_set_user_attributes](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes). If the user is logged in, the user ID will be set as the user attribute and if not the user attribute will be set to `not-logged-in`.  
+The user attribute is set using [newrelic_set_user_attributes](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-set-user-attributes). If the user is logged in, the user ID will be set as the user attribute and if not the user attribute will be set to `not-logged-in`.
 Ex: In New Relic Insights you can query Transactions for non-logged in users as
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
@@ -41,7 +37,7 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
 
 ### Post ID
 For single posts, the post ID will be set via the `post_id` custom attribute.
-  
+
 Ex: Get all Transactions for a post with ID 190.
 ```
 SELECT * FROM Transaction WHERE appName = '{appName}' AND post_id = '190'
@@ -82,12 +78,12 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND request_type = 'ajax'
 
 ### Transaction Name
 
-The Transaction name is set based on the main WP_Query parameters using [newrelic_name_transaction](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt). 
+The Transaction name is set based on the main WP_Query parameters using [newrelic_name_transaction](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt).
 Possible values are Default Home Page, Front Page, Blog Page, Network Dashboard, Dashboard, Single - {post_type}, Page - {pagename}, Date Archive, Search Page, Feed, Archive - {post_type}, Category - {cat_name}, Tag - {tag_name}, Tax - {taxonomy} - {term}
 
 ### Custom Error Logging
 
-Using the __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to New Relic for the current Transaction. 
+Using the __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to New Relic for the current Transaction.
 Note: This function can be called more than once, but only the last call will log the error to New Relic. This is a known limitation of the [PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-notice-error). As a reminder, since the PHP Agent runs only when PHP does, any cached requests will not appear in your error logs.
 
 ```
@@ -121,7 +117,7 @@ The WP New Relic plugin is developed and maintained by 10up, Inc.
 
 ### License
 
-The WP New Relic plugin is released under the [GNU Public License v2](http://www.gnu.org/licenses/gpl-2.0.html) or later. 
+The WP New Relic plugin is released under the [GNU Public License v2](http://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 ### Issues
 
