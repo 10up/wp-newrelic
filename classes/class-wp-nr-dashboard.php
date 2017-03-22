@@ -94,7 +94,7 @@ class WP_NR_Dashboard {
 
 				$dashboard_widgets[] = array(
 					'title'       => sanitize_text_field( $add_dashboard_widget['title'] ),
-					'embedID'    => $embed_html_matches[1],
+					'embedID'     => $embed_html_matches[1],
 					'description' => sanitize_text_field( $add_dashboard_widget['description'] )
 				);
 			}

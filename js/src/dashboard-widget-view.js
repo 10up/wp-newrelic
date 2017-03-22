@@ -21,7 +21,7 @@
 		},
 
 		embedUrl: function embedUrl() {
-			var embedID = this.get('embedID');
+			var embedID = this.get( 'embedID' );
 			return embedID ? "https://insights-embed.newrelic.com/embedded_widget/" + embedID : "";
 		}
 	});
@@ -44,14 +44,15 @@
 
 		render: function() {
 			var previewTemplate = _.template( $( "#view-dashboard-widget" ).html() ),
-				addNewTemplate  = _.template( $( "#add-edit-dashboard-widget" ).html() ),
-                strings         = this.strings,
-                self            = this;
+			    addNewTemplate  = _.template( $( "#add-edit-dashboard-widget" ).html() ),
+			    strings         = this.strings,
+			    self            = this;
 
 			_.each( self.widgets, function( widget ) {
 				var widgetModel = new DashboardWidgetModel( widget );
 				self.$el.append( previewTemplate( { model: widgetModel, strings: strings }) );
 			} );
+
 			this.$el.append( addNewTemplate( { strings: strings } ) );
 		},
 
