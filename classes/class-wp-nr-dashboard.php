@@ -54,7 +54,6 @@ class WP_NR_Dashboard {
 
 			$account_id = filter_input( INPUT_POST, 'wp_nr_account_id' );
 			$capture_url = filter_input( INPUT_POST, 'wp_nr_capture_urls' );
-			$disable_amp = filter_input( INPUT_POST, 'wp_nr_disable_amp' );
 
 			if ( absint( $account_id ) <= 1 ) {
 				$account_id = false;
@@ -66,20 +65,12 @@ class WP_NR_Dashboard {
 				$capture_url = false;
 			}
 
-			if ( ! empty( $disable_amp ) ) {
-				$disable_amp = true;
-			} else {
-				$disable_amp = false;
-			}
-
 			if ( WP_NR_IS_NETWORK_ACTIVE ) {
 				update_site_option( 'wp_nr_account_id', $account_id );
 				update_site_option( 'wp_nr_capture_urls', $capture_url );
-				update_site_option( 'wp_nr_disable_amp', $disable_amp );
 			} else {
 				update_option( 'wp_nr_account_id', $account_id );
 				update_option( 'wp_nr_capture_urls', $capture_url );
-				update_option( 'wp_nr_disable_amp', $disable_amp );
 			}
 
 			$dashboard_widgets = ! empty( $_POST['wp_nr_dashboard_widgets'] ) ?
@@ -185,7 +176,6 @@ class WP_NR_Dashboard {
 	public function dashboard_page() {
 		$nr_account_id = WP_NR_Helper::nr_account_id();
 		$is_capture = WP_NR_Helper::is_capture_url();
-		$is_disable_amp = WP_NR_Helper::is_disable_amp();
 		$dashboard_widgets = WP_NR_Helper::dashboard_widgets();
 		?>
 		<div class="wrap">
@@ -207,13 +197,6 @@ class WP_NR_Dashboard {
 						<td>
 							<input type="checkbox" name="wp_nr_capture_urls" <?php checked( true, $is_capture ) ?>>
 							<p class="description"><?php esc_html_e( 'Enable this to record parameter passed to PHP script via the URL (everything after the "?" in the URL).', 'wp-newrelic' ) ?></p>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row"><label for="wp_nr_disable_amp"><?php esc_html_e( 'Disable for AMP', 'wp-newrelic' ); ?></label></th>
-						<td>
-							<input type="checkbox" name="wp_nr_disable_amp" <?php checked( true, $is_disable_amp ) ?>>
-							<p class="description"><?php esc_html_e( 'Enable this to disable New Relic for AMP.', 'wp-newrelic' ) ?></p>
 						</td>
 					</tr>
 				</table>

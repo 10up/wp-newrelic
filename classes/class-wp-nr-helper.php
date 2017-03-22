@@ -22,17 +22,7 @@ class WP_NR_Helper {
 	 * @return bool
 	 */
 	public static function is_capture_url() {
-
 		return self::get_setting( 'wp_nr_capture_urls' );
-	}
-
-	/**
-	 * Check if disable for AMP setting is enabled or not
-	 *
-	 * @return bool
-	 */
-	public static function is_disable_amp() {
-		return self::get_setting( 'wp_nr_disable_amp' );
 	}
 
 	/**
