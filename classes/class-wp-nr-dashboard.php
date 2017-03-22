@@ -137,18 +137,18 @@ class WP_NR_Dashboard {
 	public function action_wp_dashboard_setup() {
 		$dashboard_widgets = WP_NR_Helper::dashboard_widgets();
 
-			//wp_die( var_dump( $dashboard_widgets ) );
 		foreach ( $dashboard_widgets as $i => $dashboard_widget ) {
-			$title = ! empty( $dashboard_widget['title'] ) ? $dashboard_widget['title'] : sprintf( __( 'New relic widget %s', 'wp-newrelic' ), $i );
-			$embed_id = $dashboard_widget['embedID']; // Validated on retrieval, as this field is required
-			$description = ! empty( $dashboard_widget['description'] ) ? $dashboard_widget['description'] : '';
 
-			wp_add_dashboard_widget(
-				sanitize_title( $title ), $title,
-				function() use ( $title, $embed_id, $description ) {
-					$this->render_dashboard_widget( $title, $embed_id, $description );
-				}
-			);
+			if ( $embed_id = $dashboard_widget['embedID'] ) {
+				add_meta_box(
+					sanitize_title( 'new-relic-insights-' . $embed_id ),
+					esc_html__( 'New Relic Insights', 'wp-newrelic' ),
+					function() use ( $dashboard_widget ) {
+						$this->render_dashboard_widget( $dashboard_widget );
+					},
+					'dashboard', 'side', 'high'
+				);
+			}
 		}
 
 	}
@@ -156,21 +156,27 @@ class WP_NR_Dashboard {
 	/**
 	 * Render a dashboard widget with an embedded New Relic visualization
 	 *
-	 * @param string $title Widget title
-	 * @param string $embed_id Used to build the URL for the embed
-	 * @param string $description Description text.
+	 * @param array $dashboard_widget Settings for widget: {
+	 *   @var string $title       Optional ttitle field
+	 *   @ver string $embedID     New Relic visualization ID
+	 *   @var string $description (optional) paragraph text, displayed below embed.
+	 * }
 	 * @return void
 	 */
-	public function render_dashboard_widget( $title, $embed_id, $description ) {
-		?>
-			<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;">
-				<iframe src="<?php echo esc_url( "https://insights-embed.newrelic.com/embedded_widget/{$embed_id}" ); ?>"
-					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-					frameborder="0"></iframe>
-			</div>
-		<?php if ( ! empty( $description ) ) : ?>
-			<p class="description"><?php echo wp_kses_post( $description ); ?></p>
-		<?php endif; // ! empty( $description )
+	public function render_dashboard_widget( $dashboard_widget ) {
+		if ( ! empty( $dashboard_widget['title'] ) ) {
+			echo '<h4>' . esc_html( $dashboard_widget['title'] ) . '</h4>';
+		}
+			?>
+		<div style="position: relative; width: 100%; height: 0; padding-top: 56.25%;">
+			<iframe src="<?php echo esc_url( "https://insights-embed.newrelic.com/embedded_widget/{$dashboard_widget['embedID']}" ); ?>"
+				style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+				frameborder="0"></iframe>
+		</div>
+			<?php
+		if ( ! empty( $dashboard_widget['description'] ) ) {
+			echo '<p class="description">' . wp_kses_post( $dashboard_widget['description' ]) . '</p>';
+		}
 	}
 
 	/**
@@ -224,7 +230,7 @@ class WP_NR_Dashboard {
 					}
 					?>
 				</p>
-			<div id="wp-nr-widget-settings-form" ></div>
+				<div id="wp-nr-widget-settings-form" ></div>
 			<?php submit_button( esc_html__( 'Save Changes', 'wp-newrelic' ), 'submit primary' ); ?>
 			</form>
 		</div>
