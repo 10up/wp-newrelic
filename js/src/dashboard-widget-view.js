@@ -48,9 +48,9 @@
 			    strings         = this.strings,
 			    self            = this;
 
-			_.each( self.widgets, function( widget ) {
+			_.each( self.widgets, function( widget, i ) {
 				var widgetModel = new DashboardWidgetModel( widget );
-				self.$el.append( previewTemplate( { model: widgetModel, strings: strings }) );
+				self.$el.append( previewTemplate( { i: i, model: widgetModel, strings: strings }) );
 			} );
 
 			this.$el.append( addNewTemplate( { strings: strings } ) );

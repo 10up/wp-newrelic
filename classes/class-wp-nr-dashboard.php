@@ -37,7 +37,8 @@ class WP_NR_Dashboard {
 			array(
 				'dashboardWidgets' => WP_NR_Helper::dashboard_widgets(),
 				'strings' => array(
-					'delete' => esc_html__( 'Delete', 'wp-newrelic' )
+					'delete'             => esc_html__( 'Delete', 'wp-newrelic' ),
+					'visualizationTitle' => esc_html__( 'Untitled Visualization', 'wp-newrelic' ),
 				),
 			)
 		);
