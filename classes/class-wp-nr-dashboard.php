@@ -88,7 +88,7 @@ class WP_NR_Dashboard {
 			// Check if input posted for "additional dashboard widget" was valid
 			if ( ! empty( $add_dashboard_widget['embed_html'] ) &&
 				preg_match(
-					'#<iframe[^>]* src="https://insights-embed.newrelic.com/embedded_widget/([A-Za-z0-9]*)"#',
+					'#<iframe[^>]* src="https://insights-embed.newrelic.com/embedded_widget/([^/"]*)"#',
 					$add_dashboard_widget['embed_html'],
 					$embed_html_matches ) ) {
 
