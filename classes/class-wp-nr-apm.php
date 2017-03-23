@@ -133,7 +133,7 @@ class WP_NR_APM {
 				$transaction = "Single - {$post_type}";
 			} elseif ( is_page() ) {
 				if ( isset( $query->query['pagename'] ) ) {
-					$this->add_custom_parameter( $query->query['pagename'] );
+					$this->add_custom_parameter( 'page', $query->query['pagename'] );
 				}
 				$transaction = "Page";
 			} elseif ( is_date() ) {
