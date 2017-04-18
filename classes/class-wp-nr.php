@@ -13,6 +13,11 @@ class WP_NR {
 			$this->include_files();
 			$this->init();
 		} else {
+			// enable a bypass for installations where you might want to install the plugin only on a specified set of servers
+			if ( defined( 'WP_NR_DISABLE_INSTALL_NOTICE' ) && true === WP_NR_DISABLE_INSTALL_NOTICE ) {
+				return;
+			}
+
 			if ( WP_NR_IS_NETWORK_ACTIVE ) {
 				add_action( 'network_admin_notices', array( $this, 'wp_nr_not_installed_notice' ) );
 			} else {
