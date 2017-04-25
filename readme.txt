@@ -2,8 +2,8 @@
 Contributors: rittesh.patel, tott, 10up
 Tags: New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to: 4.7
-Stable tag: 1.0
+Tested up to: 4.7.4
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,12 @@ If you identify any errors or have an idea for improving the plugin, please open
 3. Enjoy!
 
 == Changelog ==
+
+= 1.1 =
+* Transaction grouping. (Props nicholasio)
+* Disabling NREUM on AMP pages. (Props goldenapples)
+* PHP warning fix.
+* Constant to allow disabling of installation notice. (Props tott)
 
 = 1.0 =
 * First release of WP New Relic plugin.
