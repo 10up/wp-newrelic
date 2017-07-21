@@ -57,7 +57,11 @@ class WP_NR_APM {
 	 * @return mixed
 	 */
 	public function set_template( $template ) {
-		if ( function_exists( 'newrelic_add_custom_parameter' ) ) {
+		if ( ! is_string( $template ) && function_exists( 'add_custom_parameter' ) ) {
+			add_custom_parameter( 'template_warning', sprintf( '$template has been converted from a string to a %s by another plugin.', gettype( $template ) ) );
+		}
+
+		if ( is_string( $template ) && function_exists( 'newrelic_add_custom_parameter' ) ) {
 			newrelic_add_custom_parameter( 'template', $template );
 		}
 
