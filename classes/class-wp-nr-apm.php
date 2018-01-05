@@ -14,17 +14,21 @@ class WP_NR_APM {
 	protected $async_tasks = false;
 
 	public function __construct() {
-
 		add_action( 'plugins_loaded', array( $this, 'setup_config' ), 9999 );
 		add_action( 'init', array( $this, 'set_custom_variables' ) );
 		add_filter( 'template_include', array( $this, 'set_template' ), 9999 );
-		add_action( 'parse_query', array( $this, 'set_transaction' ), 10 );
 		add_action( 'wp', array( $this, 'set_post_id' ), 10 );
 
 		add_action( 'wp_async_task_before_job', array( $this, 'async_before_job_track_time' ), 9999, 1 );
 		add_action( 'wp_async_task_after_job', array( $this, 'async_after_job_set_attribute' ), 9999, 1 );
 
 		add_action( 'pre_amp_render_post', array( $this, 'disable_nr_autorum' ), 9999, 1 );
+
+		if ( is_admin() ) {
+			add_action( 'admin_init', array( $this, 'set_admin_transaction' ) );
+		} else {
+			add_action( 'wp', array( $this, 'set_wp_transaction' ) );
+		}
 	}
 
 	/**
@@ -112,66 +116,118 @@ class WP_NR_APM {
 	/**
 	 * Set current transaction name as per the main WP_Query
 	 *
-	 * @param $query
+	 * @access public
+	 * @action wp
+	 * @global \WP_Query $wp_query The main query.
 	 */
-	public function set_transaction( $query ) {
+	public function set_wp_transaction() {
+		global $wp_query;
 
+		// do nothing if function doesn't exist
 		if ( ! function_exists( 'newrelic_name_transaction' ) ) {
 			return;
 		}
+
 		// set transaction
 		$transaction = false;
-		if ( $query->is_main_query() ) {
-			if ( is_front_page() && is_home() ) {
-				$transaction = 'Default Home Page';
-			} elseif ( is_front_page() ) {
-				$transaction = 'Front Page';
-			} elseif ( is_home() ) {
-				$transaction = 'Blog Page';
-			} elseif ( is_network_admin() ) {
-				$transaction = 'Network Dashboard';
-			} elseif ( is_admin() ) {
-				$transaction = 'Dashboard';
-			} elseif ( is_single() ) {
-				$post_type = ( ! empty( $query->query['post_type'] ) ) ? $query->query['post_type'] : 'Post';
-				$transaction = "Single - {$post_type}";
-			} elseif ( is_page() ) {
-				if ( isset( $query->query['pagename'] ) ) {
-					$this->add_custom_parameter( 'page', $query->query['pagename'] );
-				}
-				$transaction = "Page";
-			} elseif ( is_date() ) {
-				$transaction = 'Date Archive';
-			} elseif ( is_search() ) {
-				if ( isset( $query->query['s'] ) ) {
-					$this->add_custom_parameter( 'search', $query->query['s'] );
-				}
-				$transaction = 'Search Page';
-			} elseif ( is_feed() ) {
-				$transaction = 'Feed';
-			} elseif ( is_post_type_archive() ) {
-				$post_type = post_type_archive_title( '', false );
-				$transaction = "Archive - {$post_type}";
-			} elseif ( is_category() ) {
-				if ( isset( $query->query['category_name'] ) ) {
-					$this->add_custom_parameter( 'cat_slug', $query->query['category_name'] );
-				}
-				$transaction = "Category";
-			} elseif ( is_tag() ) {
-				if ( isset( $query->query['tag'] ) ) {
-					$this->add_custom_parameter( 'tag_slug', $query->query['tag'] );
-				}
-				$transaction = "Tag";
-			} elseif ( is_tax() ) {
-				$tax    = key( $query->tax_query->queried_terms );
-				$term   = implode( ' | ', $query->tax_query->queried_terms[ $tax ]['terms'] );
-				$this->add_custom_parameter( 'term_slug', $term );
-				$transaction = "Tax - {$tax}";
-			}
 
-			if ( ! empty( $transaction ) ) {
-				newrelic_name_transaction( apply_filters( 'wp_nr_transaction_name', $transaction ) );
+		if ( is_front_page() && is_home() ) {
+			$transaction = 'Default Home Page';
+		} elseif ( is_front_page() ) {
+			$transaction = 'Front Page';
+		} elseif ( is_home() ) {
+			$transaction = 'Blog Page';
+		} elseif ( is_single() ) {
+			$post_type = ( ! empty( $wp_query->query['post_type'] ) ) ? $wp_query->query['post_type'] : 'Post';
+			$transaction = 'Single - ' . $post_type;
+		} elseif ( is_page() ) {
+			if ( isset( $wp_query->query['pagename'] ) ) {
+				$this->add_custom_parameter( 'page', $wp_query->query['pagename'] );
 			}
+			$transaction = 'Page';
+		} elseif ( is_date() ) {
+			$transaction = 'Date Archive';
+		} elseif ( is_search() ) {
+			if ( isset( $wp_query->query['s'] ) ) {
+				$this->add_custom_parameter( 'search', $wp_query->query['s'] );
+			}
+			$transaction = 'Search Page';
+		} elseif ( is_feed() ) {
+			$transaction = 'Feed';
+		} elseif ( is_post_type_archive() ) {
+			$post_type = post_type_archive_title( '', false );
+			$transaction = 'Archive - ' . $post_type;
+		} elseif ( is_category() ) {
+			if ( isset( $wp_query->query['category_name'] ) ) {
+				$this->add_custom_parameter( 'cat_slug', $wp_query->query['category_name'] );
+			}
+			$transaction = 'Category';
+		} elseif ( is_tag() ) {
+			if ( isset( $wp_query->query['tag'] ) ) {
+				$this->add_custom_parameter( 'tag_slug', $wp_query->query['tag'] );
+			}
+			$transaction = 'Tag';
+		} elseif ( is_tax() ) {
+			$tax = key( $wp_query->tax_query->queried_terms );
+			$term = implode( ' | ', $wp_query->tax_query->queried_terms[ $tax ]['terms'] );
+			$this->add_custom_parameter( 'term_slug', $term );
+			$transaction = 'Tax - ' . $tax;
+		} elseif ( defined( 'REST_REQUEST' ) && filter_var( REST_REQUEST, FILTER_VALIDATE_BOOLEAN ) ) {
+			$transaction = 'REST API';
+		}
+
+		$transaction = apply_filters( 'wp_nr_transaction_name', $transaction );
+		if ( ! empty( $transaction ) ) {
+			newrelic_name_transaction( $transaction );
+		}
+	}
+
+	/**
+	 * Set current transaction name for an admin request.
+	 *
+	 * @access public
+	 * @action admin_init
+	 * @global string $pagenow
+	 * @global string $taxnow
+	 * @global string $typenow
+	 */
+	public function set_admin_transaction() {
+		global $pagenow, $taxnow, $typenow;
+
+		$transaction = false;
+
+		// determine active action
+		$action = '';
+		if ( isset( $_REQUEST['action'] ) && -1 != $_REQUEST['action'] ) {
+			$action = $_REQUEST['action'];
+		} elseif ( isset( $_REQUEST['action2'] ) && -1 != $_REQUEST['action2'] ) {
+			$action = $_REQUEST['action2'];
+		}
+
+		// determine current request type and try to collect custom data
+		switch ( $pagenow ) {
+			case 'post.php':
+				$transaction = "{$typenow}/{$action}";
+				break;
+
+			case 'edit-tags.php':
+				$transaction = "{$taxnow}/{$action}";
+				break;
+
+			default:
+				if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+					$transaction = "wp-ajax/{$action}";
+				} elseif ( is_network_admin() ) {
+					$transaction = 'Network Dashboard';
+				} else {
+					$transaction = 'Dashboard';
+				}
+				break;
+		}
+
+		$transaction = apply_filters( 'wp_nr_transaction_name', $transaction );
+		if ( ! empty( $transaction ) ) {
+			newrelic_name_transaction( $transaction );
 		}
 	}
 
