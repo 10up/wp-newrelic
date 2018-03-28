@@ -28,6 +28,7 @@ class WP_NR_APM {
 			add_action( 'admin_init', array( $this, 'set_admin_transaction' ) );
 		} else {
 			add_action( 'wp', array( $this, 'set_wp_transaction' ) );
+			add_action( 'rest_api_init', array( $this, 'set_wp_transaction' ) );
 		}
 	}
 
