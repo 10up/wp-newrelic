@@ -1,0 +1,15 @@
+{
+	"name":"10up/wp-newrelic",
+	"description":"New Relic APM reports for WordPress.",
+	"keywords":[ "New Relic", "New Relic Reporting", "New Relic APM Reporting", "APM Reporting" ],
+	"homepage":"https://github.com/10up/wp-newrelic",
+	"authors":[
+		{
+			"name":"10up",
+			"homepage":"https://10up.com"
+		}
+	],
+	"type":"wordpress-plugin",
+	"minimum-stability":"stable",
+	"license":"GPL-2.0+"
+}
