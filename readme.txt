@@ -2,8 +2,8 @@
 Contributors: rittesh.patel, tott, 10up
 Tags: New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to: 4.7.4
-Stable tag: 1.1
+Tested up to: 4.9.5
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,12 @@ If you identify any errors or have an idea for improving the plugin, please open
 3. Enjoy!
 
 == Changelog ==
+
+= 1.2 =
+* Add support for REST API requests (props Rahe)
+* PHP warning fix (props ninnypants)
+* Better naming for transactions (props eugene-manuilov)
+* Add composer.json (props herewithme)
 
 = 1.1 =
 * Transaction grouping. (Props nicholasio)
