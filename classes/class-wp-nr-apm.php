@@ -136,8 +136,10 @@ class WP_NR_APM {
 			$transaction = 'Default Home Page';
 		} elseif ( is_front_page() ) {
 			$transaction = 'Front Page';
-		} elseif ( is_home() ) {
+		} elseif ( is_home() && false === get_query_var('sitemap',false)) {
 			$transaction = 'Blog Page';
+		} elseif ( get_query_var( 'sitemap', false ) ) {
+			$transaction = 'Sitemap';
 		} elseif ( is_single() ) {
 			$post_type = ( ! empty( $wp_query->query['post_type'] ) ) ? $wp_query->query['post_type'] : 'Post';
 			$transaction = 'Single - ' . $post_type;
@@ -178,6 +180,9 @@ class WP_NR_APM {
 		}
 
 		$transaction = apply_filters( 'wp_nr_transaction_name', $transaction );
+		ob_start();
+		print_r($transaction);
+		error_log(ob_get_clean());
 		if ( ! empty( $transaction ) ) {
 			newrelic_name_transaction( $transaction );
 		}
