@@ -136,7 +136,7 @@ class WP_NR_APM {
 			$transaction = 'Default Home Page';
 		} elseif ( is_front_page() ) {
 			$transaction = 'Front Page';
-		} elseif ( is_home() && false === get_query_var('sitemap',false)) {
+		} elseif ( is_home() && false === get_query_var( 'sitemap', false ) ) {
 			$transaction = 'Blog Page';
 		} elseif ( get_query_var( 'sitemap', false ) ) {
 			$transaction = 'Sitemap';
