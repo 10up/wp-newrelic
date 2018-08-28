@@ -27,6 +27,7 @@ class WP_NR_APM {
 		if ( is_admin() ) {
 			add_action( 'admin_init', array( $this, 'set_admin_transaction' ) );
 		} else {
+			add_action( 'pre_get_posts', array( $this, 'sitemap_check' ), 1 );
 			add_action( 'wp', array( $this, 'set_wp_transaction' ) );
 			add_action( 'rest_api_init', array( $this, 'set_wp_transaction' ) );
 		}
@@ -136,7 +137,7 @@ class WP_NR_APM {
 			$transaction = 'Default Home Page';
 		} elseif ( is_front_page() ) {
 			$transaction = 'Front Page';
-		} elseif ( is_home() ) {
+		} elseif ( is_home() && false === get_query_var( 'sitemap', false ) ) {
 			$transaction = 'Blog Page';
 		} elseif ( is_single() ) {
 			$post_type = ( ! empty( $wp_query->query['post_type'] ) ) ? $wp_query->query['post_type'] : 'Post';
@@ -178,8 +179,28 @@ class WP_NR_APM {
 		}
 
 		$transaction = apply_filters( 'wp_nr_transaction_name', $transaction );
+
 		if ( ! empty( $transaction ) ) {
 			newrelic_name_transaction( $transaction );
+		}
+	}
+
+	/**
+	 * Set current transaction name to Sitemap if it is a sitemap.
+	 *
+	 * @access public
+	 * @action pre_get_posts
+	 *
+	 * @param WP_Query $query The main query.
+	 */
+	public function sitemap_check( $query ) {
+		// do nothing if function doesn't exist.
+		if ( ! function_exists( 'newrelic_name_transaction' ) ) {
+			return;
+		}
+
+		if ( get_query_var( 'sitemap', false ) ) {
+			newrelic_name_transaction( 'Sitemap' );
 		}
 	}
 
