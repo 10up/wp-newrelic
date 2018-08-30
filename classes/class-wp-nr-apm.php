@@ -86,7 +86,11 @@ class WP_NR_APM {
 		if ( function_exists( 'newrelic_set_user_attributes' ) ) {
 			if ( is_user_logged_in() ) {
 				$user = wp_get_current_user();
-				newrelic_set_user_attributes( $user->ID, '', array_shift( $user->roles ) );
+				if ( isset( $user->roles[0] ) ) {
+					newrelic_set_user_attributes( $user->ID, '', $user->roles[0] );
+				} else {
+					newrelic_set_user_attributes( $user->ID, '', 'no-role' );
+				}
 			} else {
 				newrelic_set_user_attributes( 'not-logged-in', '', 'no-role' );
 			}
