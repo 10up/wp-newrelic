@@ -2,7 +2,7 @@
 
 > New Relic APM reports for WordPress.
 
-[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v4.9.8%20tested-success.svg)
+[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v4.9.8%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
 
 WP New Relic (WPNR) is designed to be used with the [New Relic APM](https://newrelic.com/application-monitoring), and uses the [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to augment existing metrics with valuable WordPress details such as templates, users, request type, and [Transaction](https://docs.newrelic.com/docs/apm/transactions) names. This plugin is tested with New Relic's PHP Agent version 6.7.0.174. Data collected by this plugin can be queried in [New Relic's Insights](https://newrelic.com/insights/) product, using [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference).
 
@@ -111,10 +111,6 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 
 ![wp-nr-databaseduration-query](https://cloud.githubusercontent.com/assets/2941333/20933427/ffb5652a-bbfd-11e6-97fa-ca68d66c579d.png)
 (Get Template used and Transactions whose database duration is more than 0.1)
-
-### License
-
-The WP New Relic plugin is released under the [GNU Public License v2](http://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 ### Issues
 
