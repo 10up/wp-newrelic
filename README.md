@@ -112,13 +112,6 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 ![wp-nr-databaseduration-query](https://cloud.githubusercontent.com/assets/2941333/20933427/ffb5652a-bbfd-11e6-97fa-ca68d66c579d.png)
 (Get Template used and Transactions whose database duration is more than 0.1)
 
-## Development
-
-The WP New Relic plugin is developed and maintained by 10up, Inc.
-<p align="center">
-<a href="http://10up.com/contact/"><img src="https://10updotcom-wpengine.s3.amazonaws.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
-</p>
-
 ### License
 
 The WP New Relic plugin is released under the [GNU Public License v2](http://www.gnu.org/licenses/gpl-2.0.html) or later.
@@ -126,3 +119,13 @@ The WP New Relic plugin is released under the [GNU Public License v2](http://www
 ### Issues
 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
+
+## Support Level
+
+**Active:** 10up is actively working on this, and we expect to continue work for the foreseeable future including keeping tested up to the most recent version of WordPress.  Bug reports, feature requests, questions, and pull requests are welcome.
+
+## Like what you see?
+
+<p align="center">
+<a href="http://10up.com/contact/"><img src="https://10updotcom-wpengine.s3.amazonaws.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
+</p>
