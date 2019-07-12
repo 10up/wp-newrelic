@@ -203,7 +203,7 @@ class WP_NR_APM {
 			return;
 		}
 
-		if ( get_query_var( 'sitemap', false ) ) {
+		if ( $query->is_main_query() && $query->get( 'sitemap', false ) ) {
 			newrelic_name_transaction( 'Sitemap' );
 		}
 	}
