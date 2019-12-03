@@ -220,6 +220,11 @@ class WP_NR_APM {
 	public function set_admin_transaction() {
 		global $pagenow, $taxnow, $typenow;
 
+		// do nothing if function doesn't exist
+		if ( ! function_exists( 'newrelic_name_transaction' ) ) {
+			return;
+		}
+
 		$transaction = false;
 
 		// determine active action
