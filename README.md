@@ -4,6 +4,18 @@
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.3%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
 
+## Table of Contents
+
+* [Overview](#overview)
+* [Administrative Settings](#administrative-settings)
+* [Basic Config](#basic-config)
+* [New Relic Custom Attributes](#new-relic-custom-attributes)
+* [Screenshots](#screenshots)
+* [Known Issues](#known-issuescaveats)
+* [Support](#support-level)
+
+## Overview
+
 WP New Relic (WPNR) is designed to be used with the [New Relic APM](https://newrelic.com/application-monitoring), and uses the [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to augment existing metrics with valuable WordPress details such as templates, users, request type, and [Transaction](https://docs.newrelic.com/docs/apm/transactions) names. This plugin is tested with New Relic's PHP Agent version 6.7.0.174. Data collected by this plugin can be queried in [New Relic's Insights](https://newrelic.com/insights/) product, using [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference).
 
 New Relic is a trademark of New Relic, Inc.
@@ -40,6 +52,7 @@ SELECT * FROM Transaction WHERE appName = '{appName}' AND user = 'not-logged-in'
 ```
 
 ### Post ID
+
 For single posts, the post ID will be set via the `post_id` custom attribute.
 
 Ex: Get all Transactions for a post with ID 190.
@@ -112,7 +125,13 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 ![wp-nr-databaseduration-query](https://cloud.githubusercontent.com/assets/2941333/20933427/ffb5652a-bbfd-11e6-97fa-ca68d66c579d.png)
 (Get Template used and Transactions whose database duration is more than 0.1)
 
-### Issues
+## Known Issues/Caveats
+
+### PHP version
+
+PHP version 7.3.3 is known to cause issues with this plugin, updating to 7.3.11 or greater appears to resolve these issues.  For more details, see [issue#39](https://github.com/10up/wp-newrelic/issues/39).
+
+### Have an issue to report?
 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
 
