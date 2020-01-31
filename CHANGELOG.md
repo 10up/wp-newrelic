@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
-## [1.3.1] - TBD
+## [1.3.1] - 2020-01-31
 ### Added
 - Check for New Relic functions before attempting to use them (props [@msaggiorato](https://github.com/msaggiorato) via [#31](https://github.com/10up/wp-newrelic/pull/31))
 - Plugin banner and icon images (props [@sncampbell](https://github.com/sncampbell) via [#40](https://github.com/10up/wp-newrelic/pull/40))
