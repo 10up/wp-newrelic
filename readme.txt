@@ -2,8 +2,8 @@
 Contributors: rittesh.patel, tott, 10up, oscarssanchez
 Tags: New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to: 4.9.8
-Stable tag: 1.3
+Tested up to: 5.3
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,7 +82,6 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
     Transaction name is getting set as per the main WP_Query parameters using [newrelic_name_transaction](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt).
     Possible values are Default Home Page, Front Page, Blog Page, Network Dashboard, Dashboard, Single - {post_type}, Page - {pagename}, Date Archive, Search Page, Feed, Archive - {post_type}, Category - {cat_name}, Tag - {tag_name}, Tax - {taxonomy} - {term}
 
-
 7. __Custom Error Logging__
 
     Using __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to New Relic for current transaction.
@@ -96,6 +95,10 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
 
 = Issues =
 
+1. __PHP version__
+PHP version 7.3.3 is known to cause issues with this plugin, updating to 7.3.11 or greater appears to resolve these issues.  For more details, see [issue#39](https://github.com/10up/wp-newrelic/issues/39).
+
+2. __Have an issue to report?__
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
 
 == Installation ==
@@ -105,22 +108,27 @@ If you identify any errors or have an idea for improving the plugin, please open
 
 == Changelog ==
 
-= 1.3 =
-* Bug fixes with Beaver Builder (props oscarssanchez)
-* Support for Yoast SEO Sitemaps.
+= 1.3.1 =
+* **Added:** Check for New Relic functions before attempting to use them (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
+* **Added:** Plugin banner and icon images (props Stephanie Campbell)
+* **Added:** Documentation on PHP version conflict (props [@jeffpaul](https://profiles.wordpress.org/jeffpaul/))
+* **Fixed:** Sitemap check failures where global `wp_query` was undefined (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
 
+= 1.3 =
+* **Added:** Support for Yoast SEO Sitemaps
+* **Fixed:** Issue with Beaver Builder (props [@oscarssanchez](https://profiles.wordpress.org/oscarssanchez/))
 
 = 1.2 =
-* Add support for REST API requests (props Rahe)
-* PHP warning fix (props ninnypants)
-* Better naming for transactions (props eugene-manuilov)
-* Add composer.json (props herewithme)
+* **Added:** Support for REST API requests (props [@rahe](https://profiles.wordpress.org/rahe/))
+* **Added:** composer.json (props [@momo360modena](https://profiles.wordpress.org/momo360modena/))
+* **Changed:** Better naming for transactions (props [@eugenemanuilov](https://profiles.wordpress.org/eugenemanuilov/))
+* **Fixed:** PHP warning (props [@ninnypants](https://profiles.wordpress.org/ninnypants/))
 
 = 1.1 =
-* Transaction grouping. (Props nicholasio)
-* Disabling NREUM on AMP pages. (Props goldenapples)
-* PHP warning fix.
-* Constant to allow disabling of installation notice. (Props tott)
+* **Added:** Transaction grouping (props [@nicholas_io](https://profiles.wordpress.org/nicholas_io/))
+* **Added:** Constant to allow disabling of installation notice (pProps [@tott](https://profiles.wordpress.org/tott/))
+* **Changed:** Disabling NREUM on AMP pages (props [@goldenapples](https://profiles.wordpress.org/goldenapples/))
+* **Fixed:** PHP warning
 
 = 1.0 =
-* First release of WP New Relic plugin.
+* First release of WP New Relic plugin
