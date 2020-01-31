@@ -32,7 +32,7 @@ The `develop` branch is the development branch which means it contains the next 
 2. Version bump: Bump the version number in `newrelic-reporting-for-wordpress.php` and `readme.txt` if it does not already reflect the version being released.
 3. Changelog: Add/update the changelog in `CHANGELOG.md` and `readme.txt`
 4. Props: update CREDITS.md file with any new contributors, confirm maintainers are accurate
-5. New files: Check to be sure any new files/paths that are unnecessary in the production version are included in `.distignore`.
+5. New files: Check to be sure any new files/paths that are unnecessary in the production version are included in `.gitattributes`.
 6. Readme updates: Make any other readme changes as necessary. `CHANGELOG.md` and `README.md` are geared toward GitHub and `readme.txt` contains WordPress.org-specific content. The two are slightly different.
 7. Merge: Make a non-fast-forward merge from your release branch to `develop` (or merge the pull request), then do the same for `develop` into `master` (`git checkout master && git merge --no-ff develop`). `master` contains the stable development version.
 8. Push: Push your master branch to GitHub, e.g. `git push origin master`.
