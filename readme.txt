@@ -108,6 +108,7 @@ If you identify any errors or have an idea for improving the plugin, please open
 = 1.3.1 =
 * **Added:** Check for New Relic functions before attempting to use them (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
 * **Added:** Plugin banner and icon images (props Stephanie Campbell)
+* **Added:** Documentation on PHP version conflict (props [@jeffpaul](https://profiles.wordpress.org/jeffpaul/))
 * **Fixed:** Sitemap check failures where global `wp_query` was undefined (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
 
 = 1.3 =
