@@ -82,7 +82,6 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
     Transaction name is getting set as per the main WP_Query parameters using [newrelic_name_transaction](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api#api-name-wt).
     Possible values are Default Home Page, Front Page, Blog Page, Network Dashboard, Dashboard, Single - {post_type}, Page - {pagename}, Date Archive, Search Page, Feed, Archive - {post_type}, Category - {cat_name}, Tag - {tag_name}, Tax - {taxonomy} - {term}
 
-
 7. __Custom Error Logging__
 
     Using __wp_nr_log_errors__ function, any plugin/theme can log errors/notices to New Relic for current transaction.
@@ -96,6 +95,10 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
 
 = Issues =
 
+1. __PHP version__
+PHP version 7.3.3 is known to cause issues with this plugin, updating to 7.3.11 or greater appears to resolve these issues.  For more details, see [issue#39](https://github.com/10up/wp-newrelic/issues/39).
+
+2. __Have an issue to report?__
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
 
 == Installation ==
