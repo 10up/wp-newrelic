@@ -1,0 +1,17 @@
+<script type="text/template" id="add-edit-dashboard-widget">
+	<h3 class="sub-title"><?php esc_html_e( 'Add new dashboard widget:', 'wp_newrelic' ); ?></h3>
+	<table class="form-table">
+		<tr>
+			<th scope="row"><label for=""><?php esc_html_e( 'Title', 'wp-newrelic' ); ?></label></th>
+			<td><input class="widefat" type="text" name="wp_nr_add_dashboard_widget[title]" /></td>
+		</tr>
+		<tr>
+			<th scope="row"><label for=""><?php esc_html_e( 'Embed HTML', 'wp-newrelic' ); ?></label></th>
+			<td><textarea class="widefat" type="text" name="wp_nr_add_dashboard_widget[embed_html]" /></textarea></td>
+		</tr>
+		<tr>
+			<th scope="row"><label for=""><?php esc_html_e( 'Embed Description', 'wp-newrelic' ); ?></label></th>
+			<td><textarea class="widefat" type="text" name="wp_nr_add_dashboard_widget[description]" /></textarea></td>
+		</tr>
+	</table>
+</script>
