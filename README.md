@@ -2,7 +2,7 @@
 
 > New Relic APM reports for WordPress.
 
-[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/badge/WordPress-v5.5%20tested-success.svg) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
+[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
 
 ## Table of Contents
 
