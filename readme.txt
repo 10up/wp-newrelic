@@ -2,7 +2,7 @@
 Contributors: rittesh.patel, tott, 10up, oscarssanchez
 Tags: New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to: 5.5
+Tested up to: 6.0
 Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
