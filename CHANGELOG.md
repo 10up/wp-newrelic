@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.3.2] - 2022-06-27
+### Changed
+- Bump WordPress version "tested up to" 6.0 (props [@lukecav](https://github.com/lukecav), [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul) via [#45](https://github.com/10up/wp-newrelic/pull/45), [#49](https://github.com/10up/wp-newrelic/pull/49)).
+
 ## [1.3.1] - 2020-01-31
 ### Added
 - Check for New Relic functions before attempting to use them (props [@msaggiorato](https://github.com/msaggiorato) via [#31](https://github.com/10up/wp-newrelic/pull/31))
@@ -45,6 +49,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - First release of WP New Relic plugin 🎉
 
 [Unreleased]: https://github.com/10up/wp-newrelic/compare/trunk...develop
+[1.3.2]: https://github.com/10up/wp-newrelic/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/wp-newrelic/compare/1.3...1.3.1
 [1.3]: https://github.com/10up/wp-newrelic/compare/d70cf93...1.3
 [1.2]: https://github.com/10up/wp-newrelic/compare/49f4e79...d70cf93
