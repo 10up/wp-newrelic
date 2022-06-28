@@ -1,11 +1,12 @@
 === New Relic Reporting for WordPress ===
-Contributors: rittesh.patel, tott, 10up, oscarssanchez
-Tags: New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
+Contributors:      10up, rittesh.patel, tott, oscarssanchez
+Tags:              New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to: 5.5
-Stable tag: 1.3.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to:      6.0
+Stable tag:        1.3.2
+Requires PHP:      7.3.11
+License:           GPLv2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 New Relic APM reports for WordPress.
 
@@ -108,27 +109,32 @@ If you identify any errors or have an idea for improving the plugin, please open
 
 == Changelog ==
 
-= 1.3.1 =
-* **Added:** Check for New Relic functions before attempting to use them (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
-* **Added:** Plugin banner and icon images (props Stephanie Campbell)
-* **Added:** Documentation on PHP version conflict (props [@jeffpaul](https://profiles.wordpress.org/jeffpaul/))
-* **Fixed:** Sitemap check failures where global `wp_query` was undefined (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/))
+= 1.3.2 - 2022-06-28 =
+* **Changed:** Bump WordPress version "tested up to" 6.0 (props [@lukecav](https://github.com/lukecav), [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul) via [#45](https://github.com/10up/wp-newrelic/pull/45), [#49](https://github.com/10up/wp-newrelic/pull/49)).
 
-= 1.3 =
-* **Added:** Support for Yoast SEO Sitemaps
-* **Fixed:** Issue with Beaver Builder (props [@oscarssanchez](https://profiles.wordpress.org/oscarssanchez/))
+= 1.3.1 - 2020-01-31 =
+* **Added:** Check for New Relic functions before attempting to use them (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/)).
+* **Added:** Plugin banner and icon images (props Stephanie Campbell).
+* **Added:** Documentation on PHP version conflict (props [@jeffpaul](https://profiles.wordpress.org/jeffpaul/)).
+* **Added:** GitHub Actions for plugin and asset deploys to WordPress.org (props [@jeffpaul](https://github.com/jeffpaul)).
+* **Changed:** Bump WordPress version "tested up to" 5.3 (props [@jeffpaul](https://github.com/jeffpaul)).
+* **Fixed:** Sitemap check failures where global `wp_query` was undefined (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/)).
 
-= 1.2 =
-* **Added:** Support for REST API requests (props [@rahe](https://profiles.wordpress.org/rahe/))
-* **Added:** composer.json (props [@momo360modena](https://profiles.wordpress.org/momo360modena/))
-* **Changed:** Better naming for transactions (props [@eugenemanuilov](https://profiles.wordpress.org/eugenemanuilov/))
-* **Fixed:** PHP warning (props [@ninnypants](https://profiles.wordpress.org/ninnypants/))
+= 1.3 - 2018-08-30 =
+* **Added:** Support for Yoast SEO Sitemaps.
+* **Fixed:** Issue with Beaver Builder (props [@oscarssanchez](https://profiles.wordpress.org/oscarssanchez/)).
 
-= 1.1 =
-* **Added:** Transaction grouping (props [@nicholas_io](https://profiles.wordpress.org/nicholas_io/))
-* **Added:** Constant to allow disabling of installation notice (pProps [@tott](https://profiles.wordpress.org/tott/))
-* **Changed:** Disabling NREUM on AMP pages (props [@goldenapples](https://profiles.wordpress.org/goldenapples/))
-* **Fixed:** PHP warning
+= 1.2 - 2018-05-03 =
+* **Added:** Support for REST API requests (props [@rahe](https://profiles.wordpress.org/rahe/)).
+* **Added:** composer.json (props [@momo360modena](https://profiles.wordpress.org/momo360modena/)).
+* **Changed:** Better naming for transactions (props [@eugenemanuilov](https://profiles.wordpress.org/eugenemanuilov/)).
+* **Fixed:** PHP warning (props [@ninnypants](https://profiles.wordpress.org/ninnypants/)).
 
-= 1.0 =
+= 1.1 - 2017-04-25 =
+* **Added:** Transaction grouping (props [@nicholas_io](https://profiles.wordpress.org/nicholas_io/)).
+* **Added:** Constant to allow disabling of installation notice (pProps [@tott](https://profiles.wordpress.org/tott/)).
+* **Changed:** Disabling NREUM on AMP pages (props [@goldenapples](https://profiles.wordpress.org/goldenapples/)).
+* **Fixed:** PHP warning.
+
+= 1.0 - 2017-01-09 =
 * First release of WP New Relic plugin
