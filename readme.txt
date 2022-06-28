@@ -109,7 +109,7 @@ If you identify any errors or have an idea for improving the plugin, please open
 
 == Changelog ==
 
-= 1.3.2 - 2022-06-27 =
+= 1.3.2 - 2022-06-28 =
 * **Changed:** Bump WordPress version "tested up to" 6.0 (props [@lukecav](https://github.com/lukecav), [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul) via [#45](https://github.com/10up/wp-newrelic/pull/45), [#49](https://github.com/10up/wp-newrelic/pull/49)).
 
 = 1.3.1 - 2020-01-31 =
