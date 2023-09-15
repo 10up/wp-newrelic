@@ -2,7 +2,7 @@
 Contributors:      10up, rittesh.patel, tott, oscarssanchez, jeffpaul
 Tags:              New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 4.0
-Tested up to:      6.0
+Tested up to:      6.3
 Stable tag:        1.3.2
 Requires PHP:      7.3.11
 License:           GPLv2 or later
