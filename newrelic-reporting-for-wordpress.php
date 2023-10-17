@@ -31,6 +31,49 @@ if ( ! defined( 'WP_NR_BASENAME' ) ) {
 }
 
 /**
+ * Get the minimum version of PHP required by this plugin.
+ *
+ * @return string Minimum version required.
+ */
+function wp_nr_minimum_php_requirement() {
+	return '7.3.11';
+}
+
+/**
+ * Checks whether PHP installation meets the minimum requirements
+ *
+ * @return bool True if meets minimum requirements, false otherwise.
+ */
+function wp_nr_site_meets_php_requirements() {
+
+	return version_compare( phpversion(), wp_nr_minimum_php_requirement(), '>=' );
+}
+
+if ( ! wp_nr_site_meets_php_requirements() ) {
+	add_action(
+		'admin_notices',
+		function() {
+			?>
+			<div class="notice notice-error">
+				<p>
+					<?php
+					echo wp_kses_post(
+						sprintf(
+							/* translators: %s: Minimum required PHP version */
+							__( 'New Relic Reporting for WordPress requires PHP version %s or later. Please upgrade PHP or disable the plugin.', 'wp-newrelic' ),
+							esc_html( wp_nr_minimum_php_requirement() )
+						)
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		}
+	);
+	return;
+}
+
+/**
  * Check if plugin is network active.
  *
  * @return bool
