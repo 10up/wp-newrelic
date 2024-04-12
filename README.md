@@ -2,17 +2,10 @@
 
 > New Relic APM reports for WordPress.
 
-[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
+[![Support Level](https://img.shields.io/badge/support-archived-red.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPLv2 License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
 
-## Table of Contents
-
-* [Overview](#overview)
-* [Administrative Settings](#administrative-settings)
-* [Basic Config](#basic-config)
-* [New Relic Custom Attributes](#new-relic-custom-attributes)
-* [Screenshots](#screenshots)
-* [Known Issues](#known-issuescaveats)
-* [Support](#support-level)
+> [!CAUTION]
+> As of 12 April 2024, this project is archived and no longer being actively maintained.
 
 ## Overview
 
@@ -137,7 +130,7 @@ If you identify any errors or have an idea for improving the plugin, please open
 
 ## Support Level
 
-**Active:** 10up is actively working on this, and we expect to continue work for the foreseeable future including keeping tested up to the most recent version of WordPress.  Bug reports, feature requests, questions, and pull requests are welcome.
+**Archived:** This project is no longer maintained by 10up. We are no longer responding to Issues or Pull Requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
 
 ## Like what you see?
 
