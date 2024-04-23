@@ -1,7 +1,7 @@
 === New Relic Reporting for WordPress ===
 Contributors:      10up, rittesh.patel, tott, oscarssanchez, jeffpaul
 Tags:              New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
-Requires at least: 4.0
+Requires at least: 6.3
 Tested up to:      6.5.2
 Stable tag:        1.3.2
 Requires PHP:      7.3.11

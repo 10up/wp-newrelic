@@ -5,7 +5,7 @@
  * Plugin URI:        https://wordpress.org/plugins/wp-newrelic
  * Description:       New Relic APM reports for WordPress
  * Version:           1.3.2
- * Requires at least: 4.0
+ * Requires at least: 6.3
  * Requires PHP:      7.3.11
  * Author:            10up
  * Author URI:        https://10up.com
