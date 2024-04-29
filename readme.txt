@@ -1,10 +1,10 @@
 === New Relic Reporting for WordPress ===
 Contributors:      10up, rittesh.patel, tott, oscarssanchez, jeffpaul
 Tags:              New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
-Requires at least: 4.0
-Tested up to:      6.3
+Requires at least: 6.3
+Tested up to:      6.5
 Stable tag:        1.3.2
-Requires PHP:      7.3.11
+Requires PHP:      8.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,10 @@ By default plugin will setup 3 configs.
 - newrelic.framework (value is wordpress)
 
 appname and capture_params config can be override using __wp_nr_config filter__. __wp_nr_setup_config__ action hook can also be used to setup any extra config.
+
+= Supported New Relic version =
+
+The plugin has been tested up to version 10.19.0.9 of the NewRelic agent.
 
 = New Relic Custom Attributes =
 
