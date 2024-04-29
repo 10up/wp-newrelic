@@ -31,6 +31,10 @@ By default plugin will setup 3 configs.
 
 appname and capture_params config can be override using __wp_nr_config filter__. __wp_nr_setup_config__ action hook can also be used to setup any extra config.
 
+= Supported New Relic version =
+
+The plugin has been tested up to version 10.19.0.9 of the NewRelic agent.
+
 = New Relic Custom Attributes =
 
 Certain useful custom attrribute (just like WordPress post meta) will be set for each event which can provide additional information using key-value pair. You can query events and filter them using these attributes in New Relic Insights. See [NRQL reference](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference) for more details on how to query events.
