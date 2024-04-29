@@ -6,7 +6,7 @@
  * Description:       New Relic APM reports for WordPress
  * Version:           1.3.2
  * Requires at least: 6.3
- * Requires PHP:      7.3.11
+ * Requires PHP:      8.0
  * Author:            10up
  * Author URI:        https://10up.com
  * License:           GPL v2 or later
@@ -36,7 +36,7 @@ if ( ! defined( 'WP_NR_BASENAME' ) ) {
  * @return string Minimum version required.
  */
 function wp_nr_minimum_php_requirement() {
-	return '7.3.11';
+	return '8.0';
 }
 
 /**
