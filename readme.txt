@@ -5,8 +5,8 @@ Requires at least: 4.0
 Tested up to:      6.3
 Stable tag:        1.3.2
 Requires PHP:      7.3.11
-License:           GPLv2 or later
-License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+License:           GPL-2.0-or-later
+License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
 
 New Relic APM reports for WordPress.
 

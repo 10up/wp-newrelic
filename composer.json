@@ -11,6 +11,5 @@
 	],
 	"type":"wordpress-plugin",
 	"minimum-stability":"stable",
-	"license":"GPL-2.0+",
-	"abandoned": true
+	"license":"GPL-2.0-or-later"
 }
