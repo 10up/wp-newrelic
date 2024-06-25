@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file, per [the Ke
 
 ## [Unreleased] - TBD
 
+## [1.3.3] - 2024-06-26
+**Note this release bumps the PHP minimum from 7.3.11 to 8.0 and the WordPress minimum from 4.0 to 6.3.**
+
+### Added
+- Minimum PHP version check for 7.3.11 (props [@bmarshall511](https://github.com/bmarshall511), [@Sidsector9](https://github.com/Sidsector9) via [#60](https://github.com/10up/wp-newrelic/pull/60)).
+
+### Changed
+- [Support Level](https://github.com/10up/wp-newrelic?tab=readme-ov-file#support-level) downgraded from `Active` to `Stable` (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter), [@felipeelia](https://github.com/felipeelia), [@oscarssanchezz](https://github.com/oscarssanchezz) via [#65](https://github.com/10up/wp-newrelic/pull/65)).
+- Bump WordPress "tested up to" version 6.5 (props [@zamanq](https://github.com/zamanq), [@jeffpaul](https://github.com/jeffpaul), [@oscarssanchezz](https://github.com/oscarssanchezz) via [#58](https://github.com/10up/wp-newrelic/pull/58), [#66](https://github.com/10up/wp-newrelic/pull/66)).
+
+### Fixed
+- Improve compatibility with PHP 8.1 by replacing the deprecated `FILTER_SANITIZE_STRING` (props [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul), [@felipeelia](https://github.com/felipeelia), [Sven](mailto:venms@gmail.com) via [#68](https://github.com/10up/wp-newrelic/pull/68)).
+
+### Developer
+- Create `dependency-review.yml` GitHub Action (props [@jeffpaul](https://github.com/jeffpaul) via [#54](https://github.com/10up/wp-newrelic/pull/54)).
+- Replaced [lee-dohm/no-response](https://github.com/lee-dohm/no-response) with [actions/stale](https://github.com/actions/stale) to help with closing no-response/stale issues (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter) via [#64](https://github.com/10up/wp-newrelic/pull/64)).
+
 ## [1.3.2] - 2022-06-28
 ### Changed
 - Bump WordPress version "tested up to" 6.0 (props [@lukecav](https://github.com/lukecav), [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul) via [#45](https://github.com/10up/wp-newrelic/pull/45), [#49](https://github.com/10up/wp-newrelic/pull/49)).
