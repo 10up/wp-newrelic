@@ -12,7 +12,7 @@ New Relic APM reports for WordPress.
 
 == Description ==
 
-WP New Relic (WPNR) is designed to use with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 6.7.0.174.
+WP New Relic (WPNR) is designed to use with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 10.19.0.9.
 
 New Relic is a trademark of New Relic, Inc.
 
@@ -30,10 +30,6 @@ By default plugin will setup 3 configs.
 - newrelic.framework (value is wordpress)
 
 appname and capture_params config can be override using __wp_nr_config filter__. __wp_nr_setup_config__ action hook can also be used to setup any extra config.
-
-= Supported New Relic version =
-
-The plugin has been tested up to version 10.19.0.9 of the NewRelic agent.
 
 = New Relic Custom Attributes =
 
