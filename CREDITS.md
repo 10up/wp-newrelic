@@ -6,13 +6,13 @@ The following acknowledges the Maintainers for this repository, those who have C
 
 The following individuals are responsible for curating the list of issues, responding to pull requests, and ensuring regular releases happen.
 
-[Vasken Hauri (@brandwaffle)](https://github.com/brandwaffle) and [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul).
+[Felipe Elia (@felipeelia)](https://github.com/felipeelia) and [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul).
 
 ## Contributors
 
 Thank you to all the people who have already contributed to this repository via bug reports, code, design, ideas, project management, translation, testing, etc.
 
-[Thorsten Ott (@tott)](https://github.com/tott), [Ritesh Patel (@Ritesh-patel)](https://github.com/Ritesh-patel), [Vasken Hauri (@brandwaffle)](https://github.com/brandwaffle), [John Eckman (@jeckman)](https://github.com/jeckman), [Nícholas André (@nicholasio)](https://github.com/nicholasio), [Nathaniel Taintor (@goldenapples)](https://github.com/goldenapples), [Allan Collins (@allan23)](https://github.com/allan23), [Tyrel Kelsey (@ninnypants)](https://github.com/ninnypants), [Eugene Manuilov (@eugene-manuilov)](https://github.com/eugene-manuilov), [Nicolas Juen (@Rahe)](https://github.com/Rahe), [Amaury Balmer (@herewithme)](https://github.com/herewithme), [Oscar Sanchez S. (@oscarssanchez)](https://github.com/oscarssanchez), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Matias Saggiorato (@msaggiorato)](https://github.com/msaggiorato), [Stephanie Campbell (@sncampbell)](https://github.com/sncampbell), [Luke Cavanagh (@lukecav)](https://github.com/lukecav), [Burhan Nasir (@burhandodhy)](https://github.com/burhandodhy).
+[Thorsten Ott (@tott)](https://github.com/tott), [Ritesh Patel (@Ritesh-patel)](https://github.com/Ritesh-patel), [Vasken Hauri (@brandwaffle)](https://github.com/brandwaffle), [John Eckman (@jeckman)](https://github.com/jeckman), [Nícholas André (@nicholasio)](https://github.com/nicholasio), [Nathaniel Taintor (@goldenapples)](https://github.com/goldenapples), [Allan Collins (@allan23)](https://github.com/allan23), [Tyrel Kelsey (@ninnypants)](https://github.com/ninnypants), [Eugene Manuilov (@eugene-manuilov)](https://github.com/eugene-manuilov), [Nicolas Juen (@Rahe)](https://github.com/Rahe), [Amaury Balmer (@herewithme)](https://github.com/herewithme), [Oscar Sanchez S. (@oscarssanchez)](https://github.com/oscarssanchez), [Jeffrey Paul (@jeffpaul)](https://github.com/jeffpaul), [Matias Saggiorato (@msaggiorato)](https://github.com/msaggiorato), [Stephanie Campbell (@sncampbell)](https://github.com/sncampbell), [Luke Cavanagh (@lukecav)](https://github.com/lukecav), [Burhan Nasir (@burhandodhy)](https://github.com/burhandodhy), [Ben Marshall (@bmarshall511)](https://github.com/bmarshall511), [Siddharth Thevaril (@Sidsector9)](https://github.com/Sidsector9), [Darin Kotter (@dkotter)](https://github.com/dkotter), [Felipe Elia (@felipeelia)](https://github.com/felipeelia), [Oscar Sanchez S. (@oscarssanchezz)](https://github.com/oscarssanchezz), [Quamruz Zaman (@zamanq)](https://github.com/zamanq), [Sven](mailto:venms@gmail.com).
 
 ## Libraries
 

@@ -4,7 +4,7 @@
  * Plugin Name:       New Relic Reporting for WordPress
  * Plugin URI:        https://wordpress.org/plugins/wp-newrelic
  * Description:       New Relic APM reports for WordPress
- * Version:           1.3.2
+ * Version:           1.3.3
  * Requires at least: 6.3
  * Requires PHP:      8.0
  * Author:            10up
