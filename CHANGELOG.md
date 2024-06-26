@@ -70,6 +70,7 @@ All notable changes to this project will be documented in this file, per [the Ke
 - First release of WP New Relic plugin 🎉
 
 [Unreleased]: https://github.com/10up/wp-newrelic/compare/trunk...develop
+[1.3.3]: https://github.com/10up/wp-newrelic/compare/1.3.2...1.3.3
 [1.3.2]: https://github.com/10up/wp-newrelic/compare/1.3.1...1.3.2
 [1.3.1]: https://github.com/10up/wp-newrelic/compare/1.3...1.3.1
 [1.3]: https://github.com/10up/wp-newrelic/compare/d70cf93...1.3
