@@ -24,7 +24,7 @@ class WP_NR_Dashboard {
 	 * Save settings
 	 */
 	public function save_settings() {
-		$nonce = filter_input( INPUT_POST, 'wp_nr_settings', FILTER_SANITIZE_STRING );
+		$nonce = filter_input( INPUT_POST, 'wp_nr_settings', FILTER_SANITIZE_SPECIAL_CHARS );
 
 		if ( wp_verify_nonce( $nonce, 'wp_nr_settings' ) ) {
 			$capture_url = filter_input( INPUT_POST, 'wp_nr_capture_urls' );
@@ -75,7 +75,7 @@ class WP_NR_Dashboard {
 		$is_capture = WP_NR_Helper::is_capture_url();
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'New Relic for WordPress', 'wp-newrelic' ) ?></h1>
+			<h1><?php esc_html_e( 'New Relic for WordPress', 'wp-newrelic' ); ?></h1>
 			<form method="post" action="">
 				<?php
 				wp_nonce_field( 'wp_nr_settings', 'wp_nr_settings' );
@@ -84,8 +84,8 @@ class WP_NR_Dashboard {
 					<tr>
 						<th scope="row"><label for="wp_nr_capture_urls"><?php esc_html_e( 'Capture URL Parameters', 'wp-newrelic' ); ?></label></th>
 						<td>
-							<input type="checkbox" name="wp_nr_capture_urls" <?php checked( true, $is_capture ) ?>>
-							<p class="description"><?php esc_html_e( 'Enable this to record parameter passed to PHP script via the URL (everything after the "?" in the URL).', 'wp-newrelic' ) ?></p>
+							<input type="checkbox" name="wp_nr_capture_urls" <?php checked( true, $is_capture ); ?>>
+							<p class="description"><?php esc_html_e( 'Enable this to record parameter passed to PHP script via the URL (everything after the "?" in the URL).', 'wp-newrelic' ); ?></p>
 						</td>
 					</tr>
 				</table>

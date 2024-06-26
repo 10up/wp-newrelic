@@ -5,12 +5,12 @@
  * Plugin URI:        https://wordpress.org/plugins/wp-newrelic
  * Description:       New Relic APM reports for WordPress
  * Version:           1.3.2
- * Requires at least: 4.0
- * Requires PHP:      7.3.11
+ * Requires at least: 6.3
+ * Requires PHP:      8.0
  * Author:            10up
  * Author URI:        https://10up.com
- * License:           GPL v2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * License:           GPL-2.0-or-later
+ * License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
  * Text Domain:       wp-newrelic
  */
 
@@ -28,6 +28,49 @@ if ( ! defined( 'WP_NR_PATH' ) ) {
 
 if ( ! defined( 'WP_NR_BASENAME' ) ) {
 	define( 'WP_NR_BASENAME', plugin_basename( __FILE__ ) );
+}
+
+/**
+ * Get the minimum version of PHP required by this plugin.
+ *
+ * @return string Minimum version required.
+ */
+function wp_nr_minimum_php_requirement() {
+	return '8.0';
+}
+
+/**
+ * Checks whether PHP installation meets the minimum requirements
+ *
+ * @return bool True if meets minimum requirements, false otherwise.
+ */
+function wp_nr_site_meets_php_requirements() {
+
+	return version_compare( phpversion(), wp_nr_minimum_php_requirement(), '>=' );
+}
+
+if ( ! wp_nr_site_meets_php_requirements() ) {
+	add_action(
+		'admin_notices',
+		function() {
+			?>
+			<div class="notice notice-error">
+				<p>
+					<?php
+					echo wp_kses_post(
+						sprintf(
+							/* translators: %s: Minimum required PHP version */
+							__( 'New Relic Reporting for WordPress requires PHP version %s or later. Please upgrade PHP or disable the plugin.', 'wp-newrelic' ),
+							esc_html( wp_nr_minimum_php_requirement() )
+						)
+					);
+					?>
+				</p>
+			</div>
+			<?php
+		}
+	);
+	return;
 }
 
 /**
