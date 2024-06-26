@@ -3,7 +3,7 @@ Contributors:      10up, rittesh.patel, tott, oscarssanchez, jeffpaul
 Tags:              New Relic, New Relic Reporting, New Relic APM Reporting, APM Reporting
 Requires at least: 6.3
 Tested up to:      6.5
-Stable tag:        1.3.2
+Stable tag:        1.3.3
 Requires PHP:      8.0
 License:           GPL-2.0-or-later
 License URI:       https://spdx.org/licenses/GPL-2.0-or-later.html
@@ -12,7 +12,7 @@ New Relic APM reports for WordPress.
 
 == Description ==
 
-WP New Relic (WPNR) is designed to use with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 6.7.0.174.
+WP New Relic (WPNR) is designed to use with [New Relic APM](https://newrelic.com/application-monitoring) which uses [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to properly augment existing metrics with valuable WordPress details such as templates, users, request type, transaction names etc. This plugin is tested with PHP Agent 10.19.0.9.
 
 New Relic is a trademark of New Relic, Inc.
 
@@ -30,10 +30,6 @@ By default plugin will setup 3 configs.
 - newrelic.framework (value is wordpress)
 
 appname and capture_params config can be override using __wp_nr_config filter__. __wp_nr_setup_config__ action hook can also be used to setup any extra config.
-
-= Supported New Relic version =
-
-The plugin has been tested up to version 10.19.0.9 of the NewRelic agent.
 
 = New Relic Custom Attributes =
 
@@ -113,32 +109,19 @@ If you identify any errors or have an idea for improving the plugin, please open
 
 == Changelog ==
 
+= 1.3.3 - 2024-06-26 =
+**Note this release bumps the PHP minimum from 7.3.11 to 8.0 and the WordPress minimum from 4.0 to 6.3.**
+* **Added:** Minimum PHP version check for 7.3.11 (props [@bmarshall511](https://github.com/bmarshall511), [@Sidsector9](https://github.com/Sidsector9) via [#60](https://github.com/10up/wp-newrelic/pull/60)).
+* **Changed:** [Support Level](https://github.com/10up/wp-newrelic?tab=readme-ov-file#support-level) downgraded from `Active` to `Stable` (props [@jeffpaul](https://github.com/jeffpaul), [@dkotter](https://github.com/dkotter), [@felipeelia](https://github.com/felipeelia), [@oscarssanchezz](https://github.com/oscarssanchezz) via [#65](https://github.com/10up/wp-newrelic/pull/65)).
+* **Changed:** Bump WordPress "tested up to" version 6.5 (props [@zamanq](https://github.com/zamanq), [@jeffpaul](https://github.com/jeffpaul), [@oscarssanchezz](https://github.com/oscarssanchezz) via [#58](https://github.com/10up/wp-newrelic/pull/58), [#66](https://github.com/10up/wp-newrelic/pull/66)).
+* **Fixed:** Improve compatibility with PHP 8.1 by replacing the deprecated `FILTER_SANITIZE_STRING` (props [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul), [@felipeelia](https://github.com/felipeelia), [Sven](mailto:venms@gmail.com) via [#68](https://github.com/10up/wp-newrelic/pull/68)).
+
 = 1.3.2 - 2022-06-28 =
 * **Changed:** Bump WordPress version "tested up to" 6.0 (props [@lukecav](https://github.com/lukecav), [@burhandodhy](https://github.com/burhandodhy), [@jeffpaul](https://github.com/jeffpaul) via [#45](https://github.com/10up/wp-newrelic/pull/45), [#49](https://github.com/10up/wp-newrelic/pull/49)).
 
-= 1.3.1 - 2020-01-31 =
-* **Added:** Check for New Relic functions before attempting to use them (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/)).
-* **Added:** Plugin banner and icon images (props Stephanie Campbell).
-* **Added:** Documentation on PHP version conflict (props [@jeffpaul](https://profiles.wordpress.org/jeffpaul/)).
-* **Added:** GitHub Actions for plugin and asset deploys to WordPress.org (props [@jeffpaul](https://github.com/jeffpaul)).
-* **Changed:** Bump WordPress version "tested up to" 5.3 (props [@jeffpaul](https://github.com/jeffpaul)).
-* **Fixed:** Sitemap check failures where global `wp_query` was undefined (props [@msaggiorato](https://profiles.wordpress.org/msaggiorato/)).
+[View historical changelog details here](https://github.com/10up/wp-newrelic/blob/develop/CHANGELOG.md).
 
-= 1.3 - 2018-08-30 =
-* **Added:** Support for Yoast SEO Sitemaps.
-* **Fixed:** Issue with Beaver Builder (props [@oscarssanchez](https://profiles.wordpress.org/oscarssanchez/)).
+== Upgrade notice
 
-= 1.2 - 2018-05-03 =
-* **Added:** Support for REST API requests (props [@rahe](https://profiles.wordpress.org/rahe/)).
-* **Added:** composer.json (props [@momo360modena](https://profiles.wordpress.org/momo360modena/)).
-* **Changed:** Better naming for transactions (props [@eugenemanuilov](https://profiles.wordpress.org/eugenemanuilov/)).
-* **Fixed:** PHP warning (props [@ninnypants](https://profiles.wordpress.org/ninnypants/)).
-
-= 1.1 - 2017-04-25 =
-* **Added:** Transaction grouping (props [@nicholas_io](https://profiles.wordpress.org/nicholas_io/)).
-* **Added:** Constant to allow disabling of installation notice (pProps [@tott](https://profiles.wordpress.org/tott/)).
-* **Changed:** Disabling NREUM on AMP pages (props [@goldenapples](https://profiles.wordpress.org/goldenapples/)).
-* **Fixed:** PHP warning.
-
-= 1.0 - 2017-01-09 =
-* First release of WP New Relic plugin
+= 1.3.3 =
+This release bumps the PHP minimum from 7.3.11 to 8.0 and the WordPress minimum from 4.0 to 6.3.
