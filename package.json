@@ -1,0 +1,57 @@
+{
+	"name": "wp-newrelic",
+	"version": "1.3.3",
+	"description": "New Relic APM reports for WordPress",
+	"author": {
+		"name": "10up",
+		"email": "opensource@10up.com",
+		"url": "https://10up.com"
+	},
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"WordPress-Plugin",
+		"New Relic"
+	],
+	"homepage": "https://github.com/10up/wp-newrelic#readme",
+	"repository": "git+https://github.com/10up/wp-newrelic.git",
+	"bugs": {
+		"url": "https://github.com/10up/wp-newrelic/issues"
+	},
+	"engines": {
+		"node": ">=12.13.0"
+	},
+	"dependencies": {
+		"mustache": "^4.2.0"
+	},
+	"devDependencies": {
+		"@10up/cypress-wp-utils": "^0.2.0",
+		"@wordpress/env": "^5.16.0",
+		"cypress": "^13.1.0",
+		"cypress-mochawesome-reporter": "^3.5.1",
+		"eslint-plugin-cypress": "^2.12.1"
+	},
+	"scripts": {
+        "env": "wp-env",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"env:destroy": "wp-env destroy",
+		"cypress:open": "cypress open --config-file tests/cypress/config.js --e2e --browser chrome",
+		"cypress:run": "cypress run --config-file tests/cypress/config.js"
+	},
+	"files": [
+		"readme.txt",
+		"README.md",
+		"CHANGELOG.md",
+		"composer.json",
+		"distributor.php",
+		".github/workflows/*",
+		".gitattributes",
+		"assets/img/*",
+		"dist/**/*",
+		"includes/**/*",
+		"lang/**/*",
+		"templates/**/*",
+		"vendor/yahnis-elsts/plugin-update-checker/**/*"
+	]
+}
