@@ -1,8 +1,10 @@
 # WP New Relic
 
-> New Relic APM reports for WordPress.
+![WP New Relic](https://github.com/10up/wp-newrelic/blob/develop/.wordpress-org/banner-1544x500.png)
 
-[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md)
+[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md) [![Dependency Review](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml) [![E2E Tests](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml)
+
+> New Relic APM reports for WordPress.
 
 ## Overview
 
