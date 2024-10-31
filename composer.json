@@ -11,5 +11,14 @@
 	],
 	"type":"wordpress-plugin",
 	"minimum-stability":"stable",
-	"license":"GPL-2.0-or-later"
+	"license":"GPL-2.0-or-later",
+	"require-dev": {
+		"10up/phpcs-composer": "^3.0",
+		"phpcompatibility/php-compatibility": "^9.3"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
 }
