@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ruleset name="PHPCompatibilityWP">
+	<description>PHP Compatibility checks only</description>
+
+	<rule ref="PHPCompatibilityWP" />
+	
+    <!-- Files to check -->
+	<arg name="extensions" value="php"/>
+	<file>.</file>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+
+	<config name="minimum_supported_wp_version" value="6.3"/>
+	<config name="testVersion" value="8.0-"/>
+</ruleset>
