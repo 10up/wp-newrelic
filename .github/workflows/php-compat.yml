@@ -5,6 +5,7 @@ on:
     branches:
       - develop
       - trunk
+      - add/linting-php-compat-actions
     paths:
       - "**.php"
   pull_request:
