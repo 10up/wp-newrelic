@@ -4,7 +4,7 @@
 
 	<rule ref="PHPCompatibilityWP" />
 	
-    <!-- Files to check -->
+	<!-- Files to check -->
 	<arg name="extensions" value="php"/>
 	<file>.</file>
 
