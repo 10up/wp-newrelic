@@ -45,7 +45,6 @@ function wp_nr_minimum_php_requirement() {
  * @return bool True if meets minimum requirements, false otherwise.
  */
 function wp_nr_site_meets_php_requirements() {
-
 	return version_compare( phpversion(), wp_nr_minimum_php_requirement(), '>=' );
 }
 
