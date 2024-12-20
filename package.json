@@ -1,0 +1,27 @@
+{
+  "name": "wp-newrelic",
+  "version": "1.3.3",
+  "description": "New Relic APM reports for WordPress.",
+  "scripts": {
+    "cypress:open": "cypress open --config-file tests/cypress/config.js --e2e --browser chrome",
+    "cypress:run": "cypress run --config-file tests/cypress/config.js",
+    "env": "wp-env",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
+    "postenv:start": "./tests/bin/initialize.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/10up/wp-newrelic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/10up/wp-newrelic/issues"
+  },
+  "homepage": "https://github.com/10up/wp-newrelic#readme",
+  "devDependencies": {
+    "@10up/cypress-wp-utils": "^0.4.0",
+    "@wordpress/env": "^10.14.0",
+    "cypress": "^13.17.0"
+  }
+}
