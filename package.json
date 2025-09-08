@@ -21,7 +21,7 @@
   "homepage": "https://github.com/10up/wp-newrelic#readme",
   "devDependencies": {
     "@10up/cypress-wp-utils": "^0.4.0",
-    "@wordpress/env": "^10.14.0",
+    "@wordpress/env": "^10.30.0",
     "cypress": "^13.17.0"
   }
 }
