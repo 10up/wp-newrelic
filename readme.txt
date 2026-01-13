@@ -103,9 +103,16 @@ PHP version 7.3.3 is known to cause issues with this plugin, updating to 7.3.11 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
 
 == Installation ==
+
 1. First, you will need to [install and configure](https://docs.newrelic.com/docs/agents/php-agent/getting-started/new-relic-php) New Relic PHP agent on server.
 2. Activate the plugin in WordPress.
 3. Enjoy!
+
+== Frequently Asked Questions ==
+
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the New Relic Reporting for WordPress plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/d1d1019e-23d3-4908-b1be-6caac89d4eb6).  The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
 == Changelog ==
 
