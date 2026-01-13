@@ -123,9 +123,15 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 
 PHP version 7.3.3 is known to cause issues with this plugin, updating to 7.3.11 or greater appears to resolve these issues.  For more details, see [issue#39](https://github.com/10up/wp-newrelic/issues/39).
 
+## Frequently Asked Questions
+
 ### Have an issue to report?
 
 If you identify any errors or have an idea for improving the plugin, please open an [issue](https://github.com/10up/wp-newrelic/issues?stage=open). We're excited to see what the community thinks of this project, and we would love your input!
+
+### Where do I report security bugs found in this plugin?
+
+Please report security bugs found in the source code of the New Relic Reporting for WordPress plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/d1d1019e-23d3-4908-b1be-6caac89d4eb6).  The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
 ## Support Level
 
