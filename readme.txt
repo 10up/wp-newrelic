@@ -94,6 +94,17 @@ Certain useful custom attrribute (just like WordPress post meta) will be set for
 
     This plugin also tracks runtime of [gearman](https://github.com/10up/WP-Gears) async tasks. Gearman async task run for a particular hook and it’s runtime can be track using “wp_async_task-{hook}” custom attribute in New Relic Insights.
 
+= WordPress Playground Integration =
+
+This plugin includes integration with WordPress Playground, allowing you to test and demonstrate the plugin in a browser-based WordPress environment.
+
+Try it in Playground:
+https://playground.wordpress.net/?plugin=wp-newrelic
+
+Important Notes:
+* The New Relic PHP extension is not available in WordPress Playground (browser-based environment), so the plugin will display an informational notice.
+* Playground is ideal for testing plugin functionality and exploring settings. For production use, install on a server with the New Relic PHP agent installed.
+
 = Issues =
 
 1. __PHP version__

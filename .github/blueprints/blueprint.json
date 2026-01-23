@@ -1,0 +1,23 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/wp-admin",
+	"preferredVersions": {
+		"php": "8.0",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginZipFile": {
+				"resource": "wordpress.org/plugins",
+				"slug": "wp-newrelic"
+			},
+			"options": {
+				"activate": true
+			}
+		}
+	]
+}

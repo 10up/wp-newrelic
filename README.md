@@ -2,7 +2,7 @@
 
 ![WP New Relic](https://github.com/10up/wp-newrelic/blob/develop/.wordpress-org/banner-1544x500.png)
 
-[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wp-newrelic?label=Requires%20PHP) ![Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wp-newrelic?label=Requires%20WordPress) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md) [![Dependency Review](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml) [![E2E Tests](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml)
+[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wp-newrelic?label=Requires%20PHP) ![Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wp-newrelic?label=Requires%20WordPress) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md) [![Dependency Review](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml) [![E2E Tests](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml) [![WordPress Playground Demo](https://img.shields.io/wordpress/plugin/v/wp-newrelic?logo=wordpress&logoColor=FFFFFF&label=Playground%20Demo&labelColor=3858E9&color=3858E9)](https://playground.wordpress.net/?plugin=wp-newrelic)
 
 > New Relic APM reports for WordPress.
 
@@ -116,6 +116,31 @@ This plugin also tracks the runtime of [gearman](https://github.com/10up/WP-Gear
 
 ![wp-nr-databaseduration-query](https://cloud.githubusercontent.com/assets/2941333/20933427/ffb5652a-bbfd-11e6-97fa-ca68d66c579d.png)
 (Get Template used and Transactions whose database duration is more than 0.1)
+
+## WordPress Playground Integration
+
+This plugin includes integration with [WordPress Playground](https://wordpress.github.io/wordpress-playground/), allowing you to test and demonstrate the plugin in a browser-based WordPress environment.
+
+### Try it in Playground
+
+You can launch WordPress Playground with this plugin pre-installed using one of these methods:
+
+**Direct URL:**
+```
+https://playground.wordpress.net/?plugin=wp-newrelic
+```
+
+**Using Blueprint:**
+A blueprint file is included at `.wordpress-org/blueprints/blueprint.json` that automatically installs and activates the plugin. You can use this blueprint URL:
+```
+https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/10up/wp-newrelic/develop/.wordpress-org/blueprints/blueprint.json
+```
+
+### Important Notes
+
+- **New Relic Extension Not Available**: WordPress Playground runs PHP in a browser environment using WebAssembly. The New Relic PHP extension is not available in this environment, so the plugin will display an informational notice explaining this limitation.
+- **For Testing Only**: Playground is ideal for testing plugin functionality, exploring settings, and demonstrating features. For production use, install the plugin on a server with the New Relic PHP agent installed.
+- **Environment Detection**: The plugin automatically detects when running in WordPress Playground and provides appropriate messaging. You can disable the Playground notice by defining `WP_NR_DISABLE_PLAYGROUND_NOTICE` as `true`.
 
 ## Known Issues/Caveats
 
