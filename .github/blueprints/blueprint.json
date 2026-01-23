@@ -10,6 +10,13 @@
 	},
 	"steps": [
 		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "New Relic Reporting for WordPress Playground",
+				"blogdescription": "Trying out New Relic Reporting for WordPress."
+			}
+		},
+		{
 			"step": "installPlugin",
 			"pluginZipFile": {
 				"resource": "wordpress.org/plugins",
@@ -17,6 +24,15 @@
 			},
 			"options": {
 				"activate": true
+			},
+			"progress": {
+				"caption": "Installing plugin New Relic Reporting for WordPress by 10up"
+			}
+		},
+		{
+			"step": "defineWpConfigConsts",
+			"consts": {
+				"IS_WP_PLAYGROUND": true
 			}
 		}
 	]
