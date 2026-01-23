@@ -131,9 +131,9 @@ https://playground.wordpress.net/?plugin=wp-newrelic
 ```
 
 **Using Blueprint:**
-A blueprint file is included at `.wordpress-org/blueprints/blueprint.json` that automatically installs and activates the plugin. You can use this blueprint URL:
+A blueprint file is included at `.github/blueprints/blueprint.json` that automatically installs and activates the plugin. You can use this blueprint URL:
 ```
-https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/10up/wp-newrelic/develop/.wordpress-org/blueprints/blueprint.json
+https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/10up/wp-newrelic/develop/.github/blueprints/blueprint.json
 ```
 
 ### Important Notes
