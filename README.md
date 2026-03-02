@@ -6,6 +6,9 @@
 
 > New Relic APM reports for WordPress.
 
+> [!CAUTION]
+> As of 2 March 2026, this project is archived and no longer being actively maintained.
+
 ## Overview
 
 WP New Relic (WPNR) is designed to be used with the [New Relic APM](https://newrelic.com/application-monitoring), and uses the [New Relic PHP Agent API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api) to augment existing metrics with valuable WordPress details such as templates, users, request type, and [Transaction](https://docs.newrelic.com/docs/apm/transactions) names. This plugin is tested with New Relic's PHP Agent version 10.19.0.9. Data collected by this plugin can be queried in [New Relic's Insights](https://newrelic.com/insights/) product, using [New Relic Query Language (NRQL)](https://docs.newrelic.com/docs/insights/new-relic-insights/using-new-relic-query-language/nrql-reference).
