@@ -2,9 +2,12 @@
 
 ![WP New Relic](https://github.com/10up/wp-newrelic/blob/develop/.wordpress-org/banner-1544x500.png)
 
-[![Support Level](https://img.shields.io/badge/support-stable-blue.svg)](#support-level) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wp-newrelic?label=Requires%20PHP) ![Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wp-newrelic?label=Requires%20WordPress) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md) [![Dependency Review](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml) [![E2E Tests](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml) [![WordPress Playground Demo](https://img.shields.io/wordpress/plugin/v/wp-newrelic?logo=wordpress&logoColor=FFFFFF&label=Playground%20Demo&labelColor=3858E9&color=3858E9)](https://playground.wordpress.net/?plugin=wp-newrelic)
+[![Support Level](https://img.shields.io/badge/support-archived-red.svg)](#support-level) ![Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wp-newrelic?label=Requires%20PHP) ![Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wp-newrelic?label=Requires%20WordPress) [![Release Version](https://img.shields.io/github/release/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/releases/latest) ![WordPress tested up to version](https://img.shields.io/wordpress/plugin/tested/wp-newrelic?label=WordPress) [![GPL-2.0-or-later License](https://img.shields.io/github/license/10up/wp-newrelic.svg)](https://github.com/10up/wp-newrelic/blob/develop/LICENSE.md) [![Dependency Review](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/dependency-review.yml) [![E2E Tests](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml/badge.svg)](https://github.com/10up/wp-newrelic/actions/workflows/cypress.yml) [![WordPress Playground Demo](https://img.shields.io/wordpress/plugin/v/wp-newrelic?logo=wordpress&logoColor=FFFFFF&label=Playground%20Demo&labelColor=3858E9&color=3858E9)](https://playground.wordpress.net/?plugin=wp-newrelic)
 
 > New Relic APM reports for WordPress.
+
+> [!CAUTION]
+> As of 2 March 2026, this project is archived and no longer being actively maintained.
 
 ## Overview
 
@@ -160,7 +163,7 @@ Please report security bugs found in the source code of the New Relic Reporting 
 
 ## Support Level
 
-**Stable:** 10up is not planning to develop any new features for this, but will still respond to bug reports and security concerns. We welcome PRs, but any that include new features should be small and easy to integrate and should not include breaking changes. We otherwise intend to keep this tested up to the most recent version of WordPress.
+**Archived:** This project is no longer maintained by 10up. We are no longer responding to Issues or Pull Requests unless they relate to security concerns. We encourage interested developers to fork this project and make it their own!
 
 ## Like what you see?
 
